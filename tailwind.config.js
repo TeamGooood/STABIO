@@ -11,6 +11,9 @@ export default {
         'bg-primary': colors.background.primary,      // #121212
         'bg-secondary': colors.background.secondary,  // #101010
         'bg-elevated': colors.background.elevated,    // #1a1a1a
+        'bg-base': colors.background.base,            // #13151a
+        'bg-dark': colors.background.dark,            // #17191f
+        'bg-card': colors.background.card,            // #222631
         
         // Text
         'text-primary': colors.text.primary,          // #ffffff
@@ -21,6 +24,8 @@ export default {
         // Border
         'border-primary': colors.border.primary,      // #292929
         'border-secondary': colors.border.secondary,  // #1f1f1f
+        'border-divider': colors.border.divider,      // #2f374c
+        'border-card': colors.background.card,        // #222631
         
         // Brand
         'brand-primary': colors.brand.primary,        // #455cdc
@@ -31,6 +36,7 @@ export default {
         'chart-activity': colors.chart.activity,      // #f83464
         'chart-volatility': colors.chart.volatility,  // #ff852f
         'chart-persistence': colors.chart.persistence, // #43d2a7
+        'chart-purple': colors.chart.purple,          // #9546ef
       },
       
       // 폰트

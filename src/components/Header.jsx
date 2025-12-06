@@ -1,8 +1,8 @@
 function Header() {
   return (
-    <header className="h-[60px] border-b border-border-primary flex items-center">
+    <header className="h-[60px] border-b border-border-card flex items-center">
       {/* Site Name Section */}
-      <div className="bg-bg-secondary w-[450px] h-full flex items-center pl-[38px] border-r border-border-primary">
+      <div className="bg-bg-base w-[450px] h-full flex items-center pl-[38px] border-r border-border-card">
         <div className="flex items-center gap-[18px]">
           {/* Logo */}
           <img 

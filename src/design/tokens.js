@@ -9,12 +9,16 @@ export const colors = {
     primary: '#121212',    // 메인 배경
     secondary: '#101010',  // 사이드바 배경
     elevated: '#1a1a1a',   // 카드/상승된 요소
+    base: '#13151a',       // 가장 어두운 배경
+    dark: '#17191f',       // 어두운 배경
+    card: '#222631',       // 카드 배경
   },
 
   // Border & Divider Colors
   border: {
     primary: '#292929',    // 기본 테두리
     secondary: '#1f1f1f',  // 약한 테두리
+    divider: '#2f374c',    // 구분선/분리선
   },
 
   // Text Colors
@@ -37,6 +41,7 @@ export const colors = {
     activity: '#f83464',        // 활동성 - 핑크/레드
     volatility: '#ff852f',      // 경제적 변동성 - 오렌지
     persistence: '#43d2a7',     // 지속성 - 민트/그린
+    purple: '#9546ef',          // 보라색 - 추가 차트 색상
   },
 
   // Gradient Colors (for chart indicators)

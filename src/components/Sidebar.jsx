@@ -1,8 +1,31 @@
+import { useState } from 'react';
 import WeightControl from './WeightControl';
+import RankingChart from './RankingChart';
+import SelectedChains from './SelectedChains';
+import { chainData } from '../data/chainData';
 
 function Sidebar() {
+  const [selectedChainIds, setSelectedChainIds] = useState([]);
+
+  // 체인 선택 핸들러
+  const handleSelectChain = (chainId) => {
+    if (selectedChainIds.length < 4 && !selectedChainIds.includes(chainId)) {
+      setSelectedChainIds(prev => [...prev, chainId]);
+    }
+  };
+
+  // 체인 제거 핸들러
+  const handleRemoveChain = (chainId) => {
+    setSelectedChainIds(prev => prev.filter(id => id !== chainId));
+  };
+
+  // 선택된 체인 데이터
+  const selectedChains = selectedChainIds
+    .map(id => chainData.find(chain => chain.id === id))
+    .filter(Boolean);
+
   return (
-    <aside className="w-[450px] h-[calc(100vh-60px)] bg-bg-secondary border-r border-border-primary overflow-y-auto">
+    <aside className="w-[450px] min-h-[calc(100vh-60px)] bg-bg-base border-r border-border-card overflow-x-hidden">
       {/* Weight Control Section */}
       <section className="px-[10px] pt-5 mb-[20px]">
         <div className="px-[15px]">
@@ -11,34 +34,29 @@ function Sidebar() {
       </section>
 
       {/* Divider Line */}
-      <hr className="border-t border-border-primary mx-[10px]" />
+      <hr className="border-t border-border-card mx-[10px]" />
 
       {/* Ranking Section */}
-      <section className="px-[10px] pt-5">
+      <section className="px-[10px] pt-4">
         <div className="px-[15px]">
-          {/* 세부 컴포넌트는 나중에 추가 */}
-          <h2 className="text-base font-bold text-text-secondary mb-4">
-            RANKING
-          </h2>
-          <div className="h-[530px]">
-            {/* Ranking 컴포넌트 들어갈 자리 */}
-          </div>
+          <RankingChart 
+            selectedChainIds={selectedChainIds}
+            onSelectChain={handleSelectChain}
+            onRemoveChain={handleRemoveChain}
+          />
         </div>
       </section>
 
       {/* Divider Line */}
-      <hr className="border-t border-border-primary mx-[10px]" />
+      <hr className="border-t border-border-card mx-[10px] mt-4" />
 
       {/* Selected Chains Section */}
-      <section className="px-[10px] pt-5">
+      <section className="px-[10px] pt-4 pb-[25px]">
         <div className="px-[15px]">
-          {/* 세부 컴포넌트는 나중에 추가 */}
-          <h2 className="text-base font-bold text-text-secondary mb-4">
-            SELECTED CHAINS
-          </h2>
-          <div className="h-[140px]">
-            {/* Selected Chains 컴포넌트 들어갈 자리 */}
-          </div>
+          <SelectedChains 
+            selectedChains={selectedChains}
+            onRemoveChain={handleRemoveChain}
+          />
         </div>
       </section>
     </aside>
