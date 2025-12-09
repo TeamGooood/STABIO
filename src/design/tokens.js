@@ -1,16 +1,16 @@
 /**
  * 디자인 토큰 (Design Tokens)
- * Figma qohj0go3 채널에서 추출한 프로젝트 대시보드 디자인 시스템
+ * Figma cypibprc 채널에서 추출한 프로젝트 대시보드 디자인 시스템
  */
 
 export const colors = {
   // Background Colors
   background: {
-    primary: '#121212',    // 메인 배경
+    primary: '#17191f',    // 메인 배경 (기본 배경)
     secondary: '#101010',  // 사이드바 배경
     elevated: '#1a1a1a',   // 카드/상승된 요소
     base: '#13151a',       // 가장 어두운 배경
-    dark: '#17191f',       // 어두운 배경
+    dark: '#222631',       // 어두운 배경/카드
     card: '#222631',       // 카드 배경
   },
 
@@ -19,6 +19,7 @@ export const colors = {
     primary: '#292929',    // 기본 테두리
     secondary: '#1f1f1f',  // 약한 테두리
     divider: '#2f374c',    // 구분선/분리선
+    card: '#2f374c',       // 카드 테두리
   },
 
   // Text Colors
@@ -31,40 +32,54 @@ export const colors = {
 
   // Brand Colors
   brand: {
-    primary: '#455cdc',    // 로고, 브랜드 컬러
+    primary: '#455cdc',    // 로고, 브랜드 컬러 (파란색)
     hover: '#3547c9',      // hover 상태
     active: '#2638a8',     // active 상태
   },
 
-  // Chart & Data Visualization Colors
+  // Chart & Data Visualization Colors (Figma cypibprc 채널)
   chart: {
-    activity: '#f83464',        // 활동성 - 핑크/레드
-    volatility: '#ff852f',      // 경제적 변동성 - 오렌지
-    persistence: '#43d2a7',     // 지속성 - 민트/그린
-    purple: '#9546ef',          // 보라색 - 추가 차트 색상
+    activity: '#f6465d',        // 활동성 - 레드
+    volatility: '#f3ba3a',      // 경제적 변동성 - 옐로우
+    persistence: '#0ecb81',     // 지속성 - 그린
+    purple: '#9852ed',          // 보라색 - 추가 차트 색상
+    
+    // 투명도 버전
+    activityAlpha: {
+      100: '#f6465d',           // 100%
+      66: 'rgba(246, 70, 93, 0.66)',   // 66%
+      44: 'rgba(246, 70, 93, 0.44)',   // 44%
+      10: 'rgba(246, 70, 93, 0.10)',   // 10%
+    },
+    persistenceAlpha: {
+      100: '#0ecb81',           // 100%
+      66: 'rgba(14, 203, 129, 0.66)',  // 66%
+      44: 'rgba(14, 203, 129, 0.44)',  // 44%
+      10: 'rgba(14, 203, 129, 0.10)',  // 10%
+    },
   },
 
   // Gradient Colors (for chart indicators)
   gradient: {
     activity: {
-      start: '#f83464',  // 핑크
-      end: '#ff852f',    // 오렌지
+      start: '#f6465d',  // 레드
+      end: '#f3ba3a',    // 옐로우
     },
     volatility: {
-      start: '#ff852f',  // 오렌지
-      end: '#43d2a7',    // 민트
+      start: '#f3ba3a',  // 옐로우
+      end: '#0ecb81',    // 그린
     },
   },
 
   // Semantic Colors
-  success: '#43d2a7',      // 성공, 상승
-  warning: '#ff852f',      // 경고
-  danger: '#f83464',       // 위험, 하락
-  info: '#455cdc',         // 정보
+  success: '#0ecb81',      // 성공, 상승 (그린)
+  warning: '#f3ba3a',      // 경고 (옐로우)
+  danger: '#f6465d',       // 위험, 하락 (레드)
+  info: '#455cdc',         // 정보 (블루)
 };
 
 export const typography = {
-  // Font Family
+  // Font Family (Figma cypibprc 채널)
   fontFamily: {
     primary: ['Lato', 'system-ui', '-apple-system', 'sans-serif'],
     fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
@@ -81,13 +96,14 @@ export const typography = {
     '3xl': '32px',   // 페이지 제목
   },
 
-  // Font Weights
+  // Font Weights (Figma Lato 폰트)
   fontWeight: {
-    regular: 400,
+    regular: 400,     // Lato Regular
     medium: 500,      // 일반 텍스트
     semibold: 600,    // 체인 이름, 강조
-    bold: 700,        // 라벨, 섹션 타이틀
+    bold: 700,        // Lato Bold - 라벨, 섹션 타이틀
     extrabold: 800,   // 로고
+    black: 900,       // Lato Black - 헤비 강조
   },
 
   // Line Heights
@@ -126,6 +142,7 @@ export const borderRadius = {
   DEFAULT: '10px',   // 기본 border radius (카드, 인풋 등)
   lg: '15px',
   xl: '20px',
+  '2xl': '30px',     // Figma Color 샘플 radius
   full: '9999px',    // 원형
 };
 
@@ -254,4 +271,3 @@ export default {
   effects,
   components,
 };
-

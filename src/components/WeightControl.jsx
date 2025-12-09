@@ -1,16 +1,27 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
-function WeightControl() {
-  // 핸들 위치 (0-100 범위, 첫 번째 핸들은 Activity/Volatility 경계, 두 번째는 Volatility/Persistence 경계)
-  const [handle1Position, setHandle1Position] = useState(30); // Activity 끝 = 30%
-  const [handle2Position, setHandle2Position] = useState(70); // Volatility 끝 = 70% (Activity 30% + Volatility 40%)
+function WeightControl({ weights, onWeightsChange }) {
+  // 핸들 위치 계산 (가중치로부터)
+  const [handle1Position, setHandle1Position] = useState(weights.activity);
+  const [handle2Position, setHandle2Position] = useState(weights.activity + weights.volatility);
   const [draggingHandle, setDraggingHandle] = useState(null);
-  const [editingId, setEditingId] = useState(null); // 현재 편집 중인 항목
-  const [inputValue, setInputValue] = useState(''); // 입력 중인 값
+  const [editingId, setEditingId] = useState(null);
+  const [inputValue, setInputValue] = useState('');
   const sliderRef = useRef(null);
   const handle1Ref = useRef(handle1Position);
   const handle2Ref = useRef(handle2Position);
   const inputRef = useRef(null);
+  
+  // 쓰로틀링용 ref
+  const lastUpdateRef = useRef(0);
+  const pendingUpdateRef = useRef(null);
+  const THROTTLE_MS = 50; // 50ms 간격으로 업데이트 제한
+
+  // props 변경 시 핸들 위치 동기화
+  useEffect(() => {
+    setHandle1Position(weights.activity);
+    setHandle2Position(weights.activity + weights.volatility);
+  }, [weights]);
 
   // Ref 동기화
   useEffect(() => {
@@ -18,17 +29,45 @@ function WeightControl() {
     handle2Ref.current = handle2Position;
   }, [handle1Position, handle2Position]);
 
-  // 가중치 계산
-  const weights = {
-    activity: Math.round(handle1Position),
-    volatility: Math.round(handle2Position - handle1Position),
-    persistence: Math.round(100 - handle2Position)
-  };
+  // 쓰로틀된 가중치 업데이트
+  const throttledUpdateWeights = useCallback((h1, h2) => {
+    const now = Date.now();
+    const newWeights = {
+      activity: Math.round(h1),
+      volatility: Math.round(h2 - h1),
+      persistence: Math.round(100 - h2)
+    };
 
-  const handleMouseDown = (handleNumber) => (e) => {
+    // 마지막 업데이트로부터 충분한 시간이 지났으면 바로 업데이트
+    if (now - lastUpdateRef.current >= THROTTLE_MS) {
+      lastUpdateRef.current = now;
+      onWeightsChange(newWeights);
+    } else {
+      // 아니면 pending 업데이트 예약
+      if (pendingUpdateRef.current) {
+        clearTimeout(pendingUpdateRef.current);
+      }
+      pendingUpdateRef.current = setTimeout(() => {
+        lastUpdateRef.current = Date.now();
+        onWeightsChange(newWeights);
+        pendingUpdateRef.current = null;
+      }, THROTTLE_MS);
+    }
+  }, [onWeightsChange]);
+
+  // cleanup
+  useEffect(() => {
+    return () => {
+      if (pendingUpdateRef.current) {
+        clearTimeout(pendingUpdateRef.current);
+      }
+    };
+  }, []);
+
+  const handleMouseDown = useCallback((handleNumber) => (e) => {
     e.preventDefault();
     setDraggingHandle(handleNumber);
-  };
+  }, []);
 
   // 마우스 이벤트 리스너 등록
   useEffect(() => {
@@ -42,18 +81,25 @@ function WeightControl() {
       const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
 
       if (draggingHandle === 1) {
-        // 첫 번째 핸들: 0%와 두 번째 핸들 사이에서만 이동
         const newPosition = Math.max(5, Math.min(handle2Ref.current - 5, percentage));
         setHandle1Position(newPosition);
+        throttledUpdateWeights(newPosition, handle2Ref.current);
       } else if (draggingHandle === 2) {
-        // 두 번째 핸들: 첫 번째 핸들과 100% 사이에서만 이동
         const newPosition = Math.max(handle1Ref.current + 5, Math.min(95, percentage));
         setHandle2Position(newPosition);
+        throttledUpdateWeights(handle1Ref.current, newPosition);
       }
     };
 
     const handleMouseUp = () => {
       setDraggingHandle(null);
+      // 드래그 종료 시 마지막 상태 확정
+      const finalWeights = {
+        activity: Math.round(handle1Ref.current),
+        volatility: Math.round(handle2Ref.current - handle1Ref.current),
+        persistence: Math.round(100 - handle2Ref.current)
+      };
+      onWeightsChange(finalWeights);
     };
 
     document.addEventListener('mousemove', handleMouseMove);
@@ -63,78 +109,85 @@ function WeightControl() {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [draggingHandle]);
+  }, [draggingHandle, throttledUpdateWeights, onWeightsChange]);
 
   // 입력 시작
-  const handleStartEdit = (id, value) => {
+  const handleStartEdit = useCallback((id, value) => {
     setEditingId(id);
     setInputValue(String(value));
     setTimeout(() => inputRef.current?.select(), 0);
-  };
+  }, []);
 
   // 입력값 변경
-  const handleInputChange = (e) => {
-    const val = e.target.value.replace(/[^0-9]/g, ''); // 숫자만 허용
+  const handleInputChange = useCallback((e) => {
+    const val = e.target.value.replace(/[^0-9]/g, '');
     setInputValue(val);
-  };
+  }, []);
+
+  // 입력값 적용
+  const applyInputValue = useCallback(() => {
+    const newValue = Math.max(5, Math.min(90, parseInt(inputValue) || 0));
+    let newH1 = handle1Ref.current;
+    let newH2 = handle2Ref.current;
+    
+    if (editingId === 'activity') {
+      const maxPos = handle2Ref.current - 5;
+      newH1 = Math.min(newValue, maxPos);
+      setHandle1Position(newH1);
+    } else if (editingId === 'volatility') {
+      newH2 = handle1Ref.current + newValue;
+      newH2 = Math.max(handle1Ref.current + 5, Math.min(95, newH2));
+      setHandle2Position(newH2);
+    } else if (editingId === 'persistence') {
+      newH2 = 100 - newValue;
+      newH2 = Math.max(handle1Ref.current + 5, Math.min(95, newH2));
+      setHandle2Position(newH2);
+    }
+    
+    onWeightsChange({
+      activity: Math.round(newH1),
+      volatility: Math.round(newH2 - newH1),
+      persistence: Math.round(100 - newH2)
+    });
+    setEditingId(null);
+    setInputValue('');
+  }, [editingId, inputValue, onWeightsChange]);
 
   // 입력 완료
-  const handleInputBlur = () => {
+  const handleInputBlur = useCallback(() => {
     applyInputValue();
-  };
+  }, [applyInputValue]);
 
   // Enter 키 처리
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useCallback((e) => {
     if (e.key === 'Enter') {
       applyInputValue();
     } else if (e.key === 'Escape') {
       setEditingId(null);
       setInputValue('');
     }
-  };
-
-  // 입력값 적용
-  const applyInputValue = () => {
-    const newValue = Math.max(5, Math.min(90, parseInt(inputValue) || 0));
-    
-    if (editingId === 'activity') {
-      // Activity 변경: handle1 위치 조정
-      const maxPos = handle2Position - 5;
-      setHandle1Position(Math.min(newValue, maxPos));
-    } else if (editingId === 'volatility') {
-      // Volatility 변경: handle2 위치 조정 (handle1 + volatility)
-      const newHandle2 = handle1Position + newValue;
-      setHandle2Position(Math.max(handle1Position + 5, Math.min(95, newHandle2)));
-    } else if (editingId === 'persistence') {
-      // Persistence 변경: handle2 위치 조정 (100 - persistence)
-      const newHandle2 = 100 - newValue;
-      setHandle2Position(Math.max(handle1Position + 5, Math.min(95, newHandle2)));
-    }
-    
-    setEditingId(null);
-    setInputValue('');
-  };
+  }, [applyInputValue]);
 
   const weightItems = [
     {
       id: 'activity',
       label: 'Activity',
       value: weights.activity,
-      color: '#f83464',
+      color: '#f6465d',
       colorClass: 'bg-chart-activity'
     },
     {
       id: 'volatility',
-      label: 'Economic Volatility',
+      label: 'Market Volatility',
       value: weights.volatility,
-      color: '#ff852f',
+      color: '#f3ba3a',
       colorClass: 'bg-chart-volatility'
     },
     {
       id: 'persistence',
-      label: 'Persistence',
+      label: 'Sustainability',
       value: weights.persistence,
-      color: '#43d2a7',
+      color: '#0ecb81',
       colorClass: 'bg-chart-persistence'
     }
   ];
@@ -153,20 +206,20 @@ function WeightControl() {
           className="relative w-[392px] h-[10px] rounded-full cursor-pointer"
           style={{
             background: `linear-gradient(to right, 
-              #f83464 0%, 
-              #f83464 ${handle1Position}%, 
-              #ff852f ${handle1Position}%, 
-              #ff852f ${handle2Position}%, 
-              #43d2a7 ${handle2Position}%, 
-              #43d2a7 100%)`
+              #f6465d 0%, 
+              #f6465d ${handle1Position}%, 
+              #f3ba3a ${handle1Position}%, 
+              #f3ba3a ${handle2Position}%, 
+              #0ecb81 ${handle2Position}%, 
+              #0ecb81 100%)`
           }}
         >
-          {/* Handle 1 (Activity/Volatility 경계) - 부드러운 그라데이션 테두리 */}
+          {/* Handle 1 */}
           <div
             className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-[18px] h-[18px] rounded-full cursor-grab active:cursor-grabbing p-[4px]"
             style={{ 
               left: `${handle1Position}%`,
-              background: 'linear-gradient(to right, #f83464, #ff852f)',
+              background: 'linear-gradient(to right, #f6465d, #f3ba3a)',
               boxShadow: '0 0 2px 0 rgba(0, 0, 0, 0.25)'
             }}
             onMouseDown={handleMouseDown(1)}
@@ -174,12 +227,12 @@ function WeightControl() {
             <div className="w-full h-full rounded-full bg-white" />
           </div>
 
-          {/* Handle 2 (Volatility/Persistence 경계) - 부드러운 그라데이션 테두리 */}
+          {/* Handle 2 */}
           <div
             className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-[18px] h-[18px] rounded-full cursor-grab active:cursor-grabbing p-[4px]"
             style={{ 
               left: `${handle2Position}%`,
-              background: 'linear-gradient(to right, #ff852f, #43d2a7)',
+              background: 'linear-gradient(to right, #f3ba3a, #0ecb81)',
               boxShadow: '0 0 2px 0 rgba(0, 0, 0, 0.25)'
             }}
             onMouseDown={handleMouseDown(2)}
@@ -203,7 +256,7 @@ function WeightControl() {
               </span>
             </div>
 
-            {/* Right: Value (클릭하여 편집 가능) */}
+            {/* Right: Value */}
             {editingId === item.id ? (
               <input
                 ref={inputRef}
@@ -231,4 +284,3 @@ function WeightControl() {
 }
 
 export default WeightControl;
-

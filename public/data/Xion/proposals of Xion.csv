@@ -1,0 +1,48 @@
+id,title,type,status,timeSubmit,timeVotingStart,timeVotingEnd,txHash,txHeight,proposer,voteYes,voteNo,voteNoWithVeto,voteAbstain
+48,Software Upgrade v25,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1764609470000,1764609470000,1764955070000,undefined,16159742,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,42977497.819039,371.820626,0,3168789.475824
+47,Software Upgrade v21,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1756823640000,1756823640000,1757169240000,undefined,12456595,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,45628625.819687,0,0,4986297.825556
+46,Treasury Contract Upgrade,/cosmwasm.wasm.v1.MsgStoreCode,PASSED,1755705260000,1755705260000,1756050860000,undefined,11907783,xion17hjuumk22rlc4htwuj79w7ptjfq8lej7uamk6n,43309695.959164,1183.1,0,6004076.641245
+45,Extend Mainnet Expedited Voting Period,/cosmos.gov.v1.MsgUpdateParams,PASSED,1753210052000,1753210052000,1753555652000,undefined,10677335,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,33290187.626868,391.199999,0,5009301.866354
+44,Software Upgrade v20,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1753210040000,1753210040000,1753555640000,undefined,10677328,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,41480621.976585,0,0,5008590.966354
+43,Extend Mainnet Expedited Voting Period,/cosmos.gov.v1.MsgUpdateParams,REJECTED,1751371311000,1751371311000,1751716911000,undefined,9775531,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,17117721.553018,140.747921,0,1776847.101871
+42,Add Noble to globalfee module,/cosmos.gov.v1.MsgExecLegacyContent,PASSED,1750782227000,1750782227000,1750803827000,undefined,9486742,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,28354803.633974,0,0,0
+41,Remove USDC IBC denomination to Host Zone,/feeabstraction.feeabs.v1beta1.MsgRemoveHostZone,PASSED,1750781461000,1750781461000,1750803061000,undefined,9486372,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,30619459.075233,0,0,0
+40,Software Upgrade v19,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1749570202000,1749570202000,1749915802000,undefined,8925334,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,49630512.804745,0.6,0,1782147.80295
+39,Extend Mainnet Voting Period,/cosmos.gov.v1.MsgUpdateParams,PASSED,1745362611000,1745362611000,1745449011000,undefined,7064931,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,33322080.523734,273.35541,0,3216338.739289
+38,Add USDC IBC denomination to Host Zone,/feeabstraction.feeabs.v1beta1.MsgUpdateParams,PASSED,1745362270000,1745362270000,1745448670000,undefined,7064781,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,26458806.963596,810.062026,0,12343870.869222
+37,Deploy Roulette Smart Contracts for Blockx,/cosmwasm.wasm.v1.MsgStoreCode,PASSED,1744916141000,1744916141000,1745002541000,undefined,6870188,xion1a96arf89dcnf2sa7gff46h2qwe2ksqnf3x26m5,14886012.276029,3026147.881984,0,7925550.776569
+36,Adjust slashing missed blocks threshold,/cosmos.slashing.v1beta1.MsgUpdateParams,PASSED,1744883485000,1744883485000,1744969885000,undefined,6855761,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,37888493.642728,222.222999,0,1779957.314771
+35,Set minimum commissions,/cosmos.staking.v1beta1.MsgUpdateParams,REJECTED,1744883461000,1744883461000,1744969861000,undefined,6855752,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,5530965.399284,31353972.628675,0,2785259.143552
+34,Software Upgrade v18,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1744883387000,1744883387000,1744969787000,undefined,6855720,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,37385983.51139,22.25,0,1779952.523651
+33,Update and pin account code ids to 5 and 55,/abstractaccount.v1.MsgUpdateParams,PASSED,1744143756000,1744143756000,1744230156000,undefined,6509114,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,21710008.374673,55.06,0,1003521.454993
+32,Deploy Rand Generator Smart Contract for Blockx,/cosmwasm.wasm.v1.MsgStoreCode,PASSED,1744065689000,1744065689000,1744152089000,undefined,6485808,xion1a96arf89dcnf2sa7gff46h2qwe2ksqnf3x26m5,17444748.02882,5,0,10730741.922784
+31,Adjust inflation for faster blocks,/xion.mint.v1.MsgUpdateParams,PASSED,1744054992000,1744054992000,1744141392000,undefined,6483808,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,25615425.332283,183,0,7089406.014236
+29,Deploy Rand Generator and Roulette Smart Contracts for Blockx,/cosmwasm.wasm.v1.MsgStoreCode,PASSED,1744042540000,1744042540000,1744128940000,undefined,6481347,xion1a96arf89dcnf2sa7gff46h2qwe2ksqnf3x26m5,20795715.15941,255.137,0,13764891.909468
+28,Deploy the Pyth oracle on Xion,/cosmwasm.wasm.v1.MsgStoreCode,PASSED,1742491902000,1742491902000,1742578302000,undefined,6181616,xion1w3uv6x8zeu6u449f7kxh57wdqxjpm008rpckj9,20046454.356779,60.07,0,8943613.974628
+27,Deploy XIONMarkets Smart Contracts to Mainnet,/cosmwasm.wasm.v1.MsgStoreCode,PASSED,1742323399000,1742323399000,1742409799000,undefined,6149505,xion1mzzt8mmcslyz3j5nagdf6k8r5lngdlvnx3m37l,15193898.564105,107,0,9947959.038423
+26,Upgrade Account Contract,/cosmwasm.wasm.v1.MsgStoreCode,PASSED,1741804882000,1741804882000,1741891282000,undefined,6046810,xion1kd30pmdqp8ucwlyzdqt7gedjjkzrtxfxt2pn78,22439657.201169,10,0,1001864.023439
+25,Software Upgrade v17,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1740976846000,1740976846000,1741063246000,undefined,5881604,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,34886090.053068,10.6,0,1770750.744078
+24,Deploy ThriveNativeRewards to XION Mainnet,/cosmwasm.wasm.v1.MsgStoreCode,PASSED,1740618585000,1740618585000,1740704985000,undefined,5807591,xion1ekfvg7lcf5fvzgnk65lx7u254gv9ngjrqhxudn,6094308.72673,6304.07979,0,18039702.693472
+23,Software Upgrade v16,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1740433875000,1740433875000,1740520275000,undefined,5767890,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,26173420.976825,55.5,0,1770108.446153
+22,Fractit Inception Pass,/cosmwasm.wasm.v1.MsgStoreCode,PASSED,1740074362000,1740074362000,1740160762000,undefined,5690643,xion1kx72mnaf48vu6dayx35l503zlj5e7n996gdpvr,18477591.485031,3030958.345519,0,2771183.27313
+21,Fractible Contract ,/cosmwasm.wasm.v1.MsgStoreCode,PASSED,1739945121000,1739945121000,1740031521000,undefined,5662847,xion1r4nvkn3nxh6fanmqzctgkgya2q49vurlhv2u75,19510186.745256,5,0,4543181.203591
+20,Inflation Parameters Update,/xion.mint.v1.MsgUpdateParams,PASSED,1736035035000,1736035035000,1736121435000,undefined,4830492,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,43907682.758999,124.257557,0,1100.16
+19,Enable Inflation,/xion.mint.v1.MsgUpdateParams,PASSED,1733450732000,1733450732000,1733472332000,undefined,4307239,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,39653540.83451,20.5,3.989609,6
+18,Deploy Talis Contracts,/cosmwasm.wasm.v1.MsgStoreCode,PASSED,1733406843000,1733406843000,1733428443000,undefined,0,null,39655172.19514,140.58986,0,42.4
+17,Enable Inflation,/xion.mint.v1.MsgUpdateParams,PASSED,1733384027000,1733384027000,1733405627000,undefined,4294231,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,37402079.801004,202.401,11.11,5.500002
+16,Set Permissioned Contract Upload,/cosmwasm.wasm.v1.MsgUpdateParams,PASSED,1733260230000,1733260230000,1733281830000,undefined,4269243,xion1qc8wmrvppsrpamn0yxn6sjfaz3722hqzhps4ld,52.079,0,0,0
+15,Extend Mainnet Expedited Voting Period,/cosmos.gov.v1.MsgUpdateParams,PASSED,1733180539000,1733180539000,1733184139000,undefined,0,null,51.049,0,0,0
+14,Update minimum gas fee for globalfee module,/cosmos.gov.v1.MsgExecLegacyContent,PASSED,1732641524000,1732641524000,1732727924000,undefined,0,null,51.349,0,0,2
+13,set account code id,/abstractaccount.v1.MsgUpdateParams,PASSED,1732561648000,1732561648000,1732565248000,undefined,0,null,50.999,0,0,0
+12,Set xion send platform minimum to 001xion,/xion.v1.MsgSetPlatformMinimum,PASSED,1731513852000,1731513852000,1731517452000,undefined,0,null,49.999,0,0,0
+11,Software Upgrade v14,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1729797465000,1729797465000,1729801065000,undefined,0,null,54.0203,0,0,0
+10,Extend Mainnet Voting Period,/cosmos.gov.v1.MsgUpdateParams,PASSED,1729793247000,1729793247000,1729796847000,undefined,0,null,47,0,0,0
+9,Extend Mainnet Voting Period,/cosmos.gov.v1.MsgUpdateParams,FAILED,1729714347000,1729714347000,1729717947000,undefined,0,null,47,0,0,0
+8,Extend Mainnet Voting Period,/cosmos.gov.v1.MsgUpdateParams,FAILED,1729705591000,1729705591000,1729709191000,undefined,0,null,22,0,0,0
+7,Software Upgrade v11,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1727708758000,1727708943000,1727712543000,undefined,0,null,25.1752,0,0,0
+6,Pin CodeId 1  Account contract,/cosmwasm.wasm.v1.MsgPinCodes,PASSED,1722281557000,1722281557000,1722285157000,undefined,0,null,27,0,0,0
+5,Software Upgrade v9,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1721827789000,1721827789000,1721831389000,undefined,0,null,30.09,0,0,0
+4,Mainnet launch  Legacy parameter updates,/cosmos.gov.v1.MsgExecLegacyContent,PASSED,1721093355000,1721093355000,1721096955000,undefined,0,null,23,0,0,0
+3,Mainnet launch  Parameter updates,/cosmos.staking.v1beta1.MsgUpdateParams,PASSED,1721086965000,1721086965000,1721090565000,undefined,0,null,24,0,0,0
+2,Software Upgrade v700,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1719952433000,1719952723000,1719956323000,undefined,0,null,20,0,0,0
+1,Software Upgrade v039,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1713990858000,1713990858000,1713994458000,undefined,0,null,25,0,0,0

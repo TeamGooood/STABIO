@@ -1,0 +1,53 @@
+id,title,type,status,timeSubmit,timeVotingStart,timeVotingEnd,txHash,txHeight,proposer,voteYes,voteNo,voteNoWithVeto,voteAbstain
+52,Support native minting and bridging on MegaETH,/ledger.gmp.MsgUpdateMailbox,PASSED,1764166672000,1764166672000,1764339472000,undefined,5227767,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,12.000009,0,0,0
+51,Support native minting and bridging on Stable,/ledger.gmp.MsgUpdateMailbox,PASSED,1763894267000,1763894267000,1764067067000,undefined,5179816,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,13.00001,0,0,0
+50,Support native minting and bridging on Monad,/ledger.gmp.MsgUpdateMailbox,PASSED,1763376937000,1763376937000,1763549737000,undefined,5088846,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,13.00001,0,0,0
+49,Enable Bridge V2 on Corn Etherlink TAC Berachain,/ledger.deposit.MsgAddToken,PASSED,1761845077000,1761845077000,1761931477000,undefined,4819473,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,14.000011,0,0,0
+48,Support Avalanche with Ledger V2,/ledger.gmp.MsgUpdateMailbox,PASSED,1761845054000,1761845054000,1761931454000,undefined,4819469,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,14.000011,0,0,0
+47,Enable V2 mechanics on Ethereum,/ledger.gmp.MsgEnableMessagePath,PASSED,1761845020000,1761845020000,1761931420000,undefined,4819463,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,15.000011,0,0,0
+46,Enable GMP bridging on Ethereum Base BSC Sonic,/ledger.gmp.MsgUpdateMailbox,PASSED,1761122158000,1761122158000,1761208558000,undefined,0,null,11.000008,0,0,0
+45,Enable GMP bridging on Ethereum Base BSC Sonic,/ledger.gmp.MsgUpdateMailbox,REJECTED,1760945328000,1760945328000,1761118128000,undefined,4661234,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,8.000006,0,0,0
+44,Upgrade to v210,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1759326382000,1759326382000,1759499182000,undefined,4376584,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,11.000007,0,0,0
+43,Enable Starknet deposit and redeem of LBTC,/ledger.deposit.MsgAddToken,PASSED,1757526791000,1757526791000,1757613191000,undefined,4059397,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,9.000006,0,0,0
+42,Delegate to enable Kraken validator,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1756743164000,1756743164000,1756915964000,undefined,3921215,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,11.000009,0,0,0
+41,Post upgrade v200 configurations,/cosmos.authz.v1beta1.MsgGrant,PASSED,1753864064000,1753864064000,1753950464000,undefined,3412615,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,11.000009,0,0,0
+40,LBTC YieldBearing Protocol Upgrade,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1753725549000,1753725549000,1753811949000,undefined,3388239,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,10.000008,0,0,0
+39,Upgrade to v130 for Starknet support and dualtoken on Katana,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1750974264000,1750974264000,1751060664000,undefined,2902595,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,13.000011,0,0,0
+38,Increase validator limit to 21 and enable Lombard additional validator,/cosmos.staking.v1beta1.MsgUpdateParams,PASSED,1748275789000,1748275789000,1748362189000,undefined,2426255,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,13.000011,0,0,0
+37,Increase validator limit to 21 and enable Lombard additional validator,/cosmos.staking.v1beta1.MsgUpdateParams,REJECTED,1747844140000,1747844140000,1748016940000,undefined,2350676,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,1.000001,0,0,0
+36,Delegate to enable Galaxy validator,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1747670352000,1747670352000,1747756752000,undefined,2320081,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,9.000007,0,0,0
+35,Grant store and migrate privileges for Ethereum Pectra upgrade,/cosmos.authz.v1beta1.MsgGrant,PASSED,1746445647000,1746445647000,1746532047000,undefined,2103133,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,12.000011,0,0,0
+34,Enable DCG validator,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1745500626000,1745500626000,1745587026000,undefined,1935707,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,11.000009,0,0,0
+33,Restore Cubist and P2P validators,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1745310529000,1745310529000,1745396929000,undefined,1901980,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,7.000007,0,0,0
+32,Add Ink LBTC address,/ledger.deposit.MsgAddLbtcAddress,PASSED,1745217380000,1745217380000,1745303780000,undefined,1885545,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,10.00001,0,0,0
+31,Add Ink LBTC address,/ledger.deposit.MsgAddLbtcAddress,REJECTED,1744972684000,1744972684000,1745145484000,undefined,1842372,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,2.000002,0,0,0
+30,Update gov parameters revoke wasm08 light client authorizations add Solana LBTC address,/cosmos.gov.v1.MsgUpdateParams,PASSED,1744960182000,1744960182000,1744967382000,undefined,1840167,lom1s6p9u2n3sd0q2nv4e24vewmlrdsl20dja33js4,6.000006,0,0,0
+29,Grant msg migrate contract for ibc 08wasm,/cosmos.authz.v1beta1.MsgGrant,PASSED,1744297119000,1744297119000,1744304319000,undefined,1723798,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,6.000006,0,0,0
+28,Upgrade,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1744119775000,1744119775000,1744126975000,undefined,1692599,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,10.00001,0,0,0
+27,Add Minter,/ledger.lbtc.MsgAddMinter,PASSED,1744063859000,1744063859000,1744071059000,undefined,1682712,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,5.000005,0,0,0
+26,Set 2h voting period for expetied proposal,/cosmos.gov.v1.MsgUpdateParams,PASSED,1743963868000,1743963998000,1744050398000,undefined,1665186,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,11.000011,0,0,0
+25,Grant store code for 08wasm,/cosmos.authz.v1beta1.MsgGrant,PASSED,1743960068000,1743960068000,1744046468000,undefined,1664514,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,10.00001,0,0,0
+24,Grant store code for 08wasm,/cosmos.authz.v1beta1.MsgGrant,FAILED,1743835475000,1743835475000,1744008275000,undefined,1642456,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,11.000011,0,0,0
+23,Upgrade v100,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1743774853000,1743774853000,1743947653000,undefined,1631709,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,12.000012,0,0,0
+22,Update params,/cosmos.staking.v1beta1.MsgUpdateParams,PASSED,1743698822000,1743698822000,1743785222000,undefined,1618222,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,9.000009,0,0,0
+21,Add Ink LBTC address,/ledger.deposit.MsgAddLbtcAddress,PASSED,1743418000000,1743418000000,1743504400000,undefined,0,null,11.000011,0,0,0
+20,Activate Figment deactivate Applied validators,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1742317558000,1742317558000,1742403958000,undefined,0,null,10.00001,0,0,0
+19,Add Sonic LBTC address,/ledger.deposit.MsgAddLbtcAddress,PASSED,1742233888000,1742233888000,1742320288000,undefined,0,null,11.000011,0,0,0
+18,Activate Wintermute Kiln validators,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1740654836000,1740654836000,1740741236000,undefined,0,null,10.00001,0,0,0
+17,Activate f2pool stakefish Antpool validators,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1740555194000,1740555194000,1740641594000,undefined,0,null,8.000008,0,0,0
+16,Activate Nansen validator,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1740414701000,1740414701000,1740501101000,undefined,0,null,7.000007,0,0,0
+15,Activate P2P OKX validators,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1740236457000,1740236457000,1740409257000,undefined,0,null,5.000005,0,0,0
+14,Activate ChorusOne validator,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1740054587000,1740054587000,1740140987000,undefined,0,null,4.000004,0,0,0
+13,Add SUI package,/ledger.deposit.MsgAddLbtcAddress,PASSED,1739902092000,1739902257000,1739988657000,undefined,0,null,5.000005,0,0,0
+12,Upgrde,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1739887134000,1739887134000,1739973534000,undefined,0,null,5.000005,0,0,0
+11,Allow 15 validators in set,/cosmos.staking.v1beta1.MsgUpdateParams,PASSED,1737712646000,1737712646000,1737799046000,undefined,0,null,5.000005,0,0,0
+10,Allow 5 validators in set,/cosmos.staking.v1beta1.MsgUpdateParams,PASSED,1735153214000,1735153214000,1735239614000,undefined,80056,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,4.000004,0,0,0
+9,Allow Amber validator to participate in consensus,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1735062252000,1735062252000,1735148652000,undefined,63303,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,3.000003,0,0,0
+8,Add Base LBTC address,/ledger.deposit.MsgAddLbtcAddress,PASSED,1734956927000,1734956927000,1735043327000,undefined,43775,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,6,0,0,0
+7,Add BSC LBTC address,/ledger.deposit.MsgAddLbtcAddress,PASSED,1734956916000,1734956916000,1735043316000,undefined,43773,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,8,0,0,0
+6,Add Ethereum LBTC address,/ledger.deposit.MsgAddLbtcAddress,PASSED,1734956905000,1734956905000,1735043305000,undefined,43771,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,6,0,0,0
+5,Add main deposit public key,/ledger.deposit.MsgAddDepositPublicKey,PASSED,1734956884000,1734956884000,1735043284000,undefined,43767,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,8,0,0,0
+4,Allow Cubist validator to participate in consensus,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1734724278000,1734724278000,1734810678000,undefined,628,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,6,0,0,0
+3,Allow Informal validator to participate in consensus,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1734724257000,1734724257000,1734897057000,undefined,624,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,7,0,0,0
+2,Allow Applied validator to participate in consensus,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1734724240000,1734724240000,1734810640000,undefined,621,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,5,0,0,0
+1,Allow Lombard validator to participate in consensus,/cosmos.staking.v1beta1.MsgDelegate,PASSED,1734724095000,1734724095000,1734810495000,undefined,594,lom169dpm3dxss23ksm8q25zsyg07s0k55qafldgat,4,0,0,0

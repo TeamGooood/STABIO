@@ -1,0 +1,20 @@
+id,title,type,status,timeSubmit,timeVotingStart,timeVotingEnd,txHash,txHeight,proposer,voteYes,voteNo,voteNoWithVeto,voteAbstain
+19,Increase validators min commissions to 10,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1747237099000,1747237099000,1747323499000,undefined,2501532,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,185853179.133592,4377.543325,10.02,24100811.233582
+18,Recover Babylon Tendermint client,/ibc.core.client.v1.MsgRecoverClient,REJECTED,1747236884000,1747236884000,1747496084000,undefined,2501494,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,2408.019441,22098.322575,1542.033349,53704.902346
+17,Add vesting accounts to xinvestors module,/milkyway.investors.v1.MsgAddVestingInvestor,PASSED,1746781086000,1746781086000,1746867486000,undefined,0,null,105820047.370711,72.378484,10,24043651.063695
+16,Mint params change,/cosmos.mint.v1beta1.MsgUpdateParams,PASSED,1745923155000,1745923155000,1746009555000,undefined,2268374,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,119760897.782123,92,0,24035029.402828
+15,Add vesting accounts to xinvestors module,/milkyway.investors.v1.MsgAddVestingInvestor,PASSED,1745865678000,1745865678000,1745952078000,undefined,2258153,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,79692645.479197,100.27,0,24030724.854999
+14,Staking distribution and investors params change,/cosmos.staking.v1beta1.MsgUpdateParams,PASSED,1745824034000,1745824034000,1745910434000,undefined,2250778,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,11.001,0,0,0
+13,Staking distribution and mint params change,/cosmos.staking.v1beta1.MsgUpdateParams,REJECTED,1745790701000,1745790701000,1746049901000,undefined,2244870,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,114,79940926.586745,1806.910562,2427.6
+12,Upgrade to v12,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1745683858000,1745683858000,1745770258000,undefined,2226299,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,13.001,0,0,0
+11,Upgrade to v11,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1745518103000,1745518103000,1745604503000,undefined,2197464,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,13,0,0,0
+10,Upgrade to v10,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1744897685000,1744897685000,1744984085000,undefined,0,null,13,0,0,0
+9,Recover Babylon Tendermint client,/ibc.core.client.v1.MsgRecoverClient,PASSED,1744733475000,1744733475000,1744819875000,undefined,2057611,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,11,0,0,0
+8,Allow foundation address to upload CosmWasm codes,/cosmwasm.wasm.v1.MsgAddCodeUploadParamsAddresses,PASSED,1744367274000,1744367274000,1744453674000,undefined,1992415,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,14,0,0,0
+7,Add MILK token as a restable asset,/milkyway.assets.v1.MsgRegisterAsset,PASSED,1743534928000,1743534928000,1743794128000,undefined,1845509,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,17,0,0,0
+6,Upgrade to v9,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1740411403000,1740411403000,1740497803000,undefined,1296392,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,17,0,0,0
+5,Support for USDC restaking,/connect.marketmap.v2.MsgUpsertMarkets,PASSED,1738077280000,1738077280000,1738163680000,undefined,885255,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,17,0,0,0
+4,Slashing gov marketmap assets and restaking params change,/cosmos.slashing.v1beta1.MsgUpdateParams,PASSED,1736241396000,1736241396000,1736327796000,undefined,565517,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,16,0,0,0
+3,Upgrade chain software to v6,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1734521113000,1734521113000,1734607513000,undefined,232978,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,4,0,0,0
+2,Upgrade software chain to v3,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1733965252000,1733965252000,1734224452000,undefined,133609,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,5,0,0,0
+1,Upgrade software chain to v3,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,FAILED,1733708938000,1733708938000,1733968138000,undefined,87882,milk108zdtldyt6r98rlg6la6nvwczzxnh2mjajlj4g,3,2,0,0

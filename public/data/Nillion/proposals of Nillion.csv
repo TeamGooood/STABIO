@@ -1,0 +1,2 @@
+id,title,type,status,timeSubmit,timeVotingStart,timeVotingEnd,txHash,txHeight,proposer,voteYes,voteNo,voteNoWithVeto,voteAbstain
+1,Enable Withdraw Address on Nillion SetWithdrawAddress  true,/cosmos.distribution.v1beta1.MsgUpdateParams,PASSED,1753950968000,1753950968000,1754469368000,undefined,2576187,nillion1uceaqqezre5dhnatmkkat5jp2q3adgf5dpgt7c,37695341.188327,231.978315,0,0

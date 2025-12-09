@@ -1,13 +1,91 @@
-import { useState, useRef } from 'react';
-import { chainData } from '../data/chainData';
+import { useState, useRef, memo, useCallback } from 'react';
 
-function RankingChart({ selectedChainIds, onSelectChain, onRemoveChain }) {
+// 개별 랭킹 아이템 컴포넌트 (메모이제이션)
+const RankingItem = memo(function RankingItem({ 
+  chain, 
+  rank, 
+  isSelected, 
+  isDisabled,
+  maxScore,
+  onClick 
+}) {
+  const textColor = isSelected ? 'text-text-primary' : 'text-text-tertiary';
+  const barColor = isSelected ? 'bg-white' : 'bg-text-tertiary';
+
+  return (
+    <div
+      className={`w-[400px] h-[36px] flex items-start cursor-pointer hover:opacity-80 ${isDisabled ? 'opacity-50' : ''}`}
+      onClick={onClick}
+    >
+      {/* Rank Number */}
+      <span className={`text-base font-normal ${textColor} w-[18px] leading-[18px] pt-[9px] text-right`}>
+        {rank}
+      </span>
+
+      {/* Chain Info */}
+      <div className="w-[365px] ml-[17px]">
+        {/* Name and Score Row */}
+        <div className="flex justify-between items-center h-[18px] gap-[10px]">
+          <span className={`text-base font-normal ${textColor} leading-[18px] truncate`}>
+            {chain.name}
+          </span>
+          <span className={`text-base font-normal ${textColor} leading-[18px] shrink-0 min-w-[40px] h-[18px] text-right`}>
+            {chain.score.toFixed(2)}
+          </span>
+        </div>
+
+        {/* Score Bar */}
+        <div className="relative h-[18px] w-[365px]">
+          {/* Background Bar */}
+          <div className="absolute top-1/2 -translate-y-1/2 w-full h-[4px] bg-border-card rounded-full" />
+          {/* Score Bar */}
+          <div
+            className={`absolute top-1/2 -translate-y-1/2 h-[4px] left-0 ${barColor} rounded-full transition-[width] duration-150`}
+            style={{ width: `${(chain.score / maxScore) * 100}%` }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+});
+
+// 드롭다운 아이템 컴포넌트 (메모이제이션)
+const DropdownItem = memo(function DropdownItem({ chain, onClick }) {
+  return (
+    <div
+      className="w-full h-[50px] flex items-center px-[20px] gap-[10px] border-b border-border-card cursor-pointer hover:bg-border-card transition-colors"
+      onClick={onClick}
+    >
+      {/* Chain Logo */}
+      <div className="w-[30px] h-[30px] rounded-full bg-border-card flex items-center justify-center overflow-hidden shrink-0">
+        <img 
+          src={chain.logo} 
+          alt={chain.name}
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            e.target.style.display = 'none';
+            e.target.nextSibling.style.display = 'flex';
+          }}
+        />
+        <span className="text-xs font-bold text-text-primary hidden items-center justify-center w-full h-full">
+          {chain.name.charAt(0)}
+        </span>
+      </div>
+      {/* Chain Name */}
+      <span className="text-base font-bold text-text-primary">
+        {chain.name}
+      </span>
+    </div>
+  );
+});
+
+function RankingChart({ rankedChains, selectedChainIds, onSelectChain, onRemoveChain }) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // 드롭다운 열림 상태
-  const leaderboardRef = useRef(null); // 랭킹 차트 스크롤 컨테이너 ref
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const leaderboardRef = useRef(null);
 
   // 드롭다운에서 체인 선택 핸들러
-  const handleDropdownSelect = (chain) => {
+  const handleDropdownSelect = useCallback((chain) => {
     if (selectedChainIds.length < 4 && !selectedChainIds.includes(chain.id)) {
       onSelectChain(chain.id);
     }
@@ -15,33 +93,29 @@ function RankingChart({ selectedChainIds, onSelectChain, onRemoveChain }) {
     setSearchQuery('');
 
     // 선택된 체인의 랭킹 위치로 스크롤
-    const sortedChains = [...chainData].sort((a, b) => b.score - a.score);
-    const chainIndex = sortedChains.findIndex(c => c.id === chain.id);
+    const chainIndex = rankedChains.findIndex(c => c.id === chain.id);
     if (chainIndex !== -1 && leaderboardRef.current) {
-      const itemHeight = 53; // 아이템 높이 36px + 간격 17px
+      const itemHeight = 53;
       leaderboardRef.current.scrollTo({
         top: chainIndex * itemHeight,
         behavior: 'smooth'
       });
     }
-  };
+  }, [rankedChains, selectedChainIds, onSelectChain]);
 
   // 체인 선택/해제 핸들러
-  const handleChainClick = (chainId) => {
+  const handleChainClick = useCallback((chainId) => {
     if (selectedChainIds.includes(chainId)) {
       onRemoveChain(chainId);
     } else if (selectedChainIds.length < 4) {
       onSelectChain(chainId);
     }
-  };
+  }, [selectedChainIds, onSelectChain, onRemoveChain]);
 
   // 드롭박스용 검색 필터링
-  const filteredChains = chainData.filter(chain =>
+  const filteredChains = rankedChains.filter(chain =>
     chain.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
-  // 랭킹 차트용 - 전체 데이터 정렬 (필터링 없음)
-  const sortedChains = [...chainData].sort((a, b) => b.score - a.score);
 
   // 최대 점수 (바 너비 계산용)
   const maxScore = 100;
@@ -97,31 +171,11 @@ function RankingChart({ selectedChainIds, onSelectChain, onRemoveChain }) {
           <div className="absolute top-[55px] left-0 w-[400px] max-h-[350px] bg-bg-dark border border-border-card rounded-[10px] overflow-y-auto scrollbar-thin z-50">
             {filteredChains.length > 0 ? (
               filteredChains.map((chain) => (
-                <div
+                <DropdownItem
                   key={chain.id}
-                  className="w-full h-[50px] flex items-center px-[20px] gap-[10px] border-b border-border-card cursor-pointer hover:bg-border-card transition-colors"
+                  chain={chain}
                   onClick={() => handleDropdownSelect(chain)}
-                >
-                  {/* Chain Logo */}
-                  <div className="w-[30px] h-[30px] rounded-full bg-border-card flex items-center justify-center overflow-hidden shrink-0">
-                    <img 
-                      src={chain.logo} 
-                      alt={chain.name}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <span className="text-xs font-bold text-text-primary hidden items-center justify-center w-full h-full">
-                      {chain.name.charAt(0)}
-                    </span>
-                  </div>
-                  {/* Chain Name */}
-                  <span className="text-base font-bold text-text-primary">
-                    {chain.name}
-                  </span>
-                </div>
+                />
               ))
             ) : (
               <div className="h-[50px] flex items-center justify-center text-text-tertiary">
@@ -143,56 +197,21 @@ function RankingChart({ selectedChainIds, onSelectChain, onRemoveChain }) {
       {/* Leaderboard - 스크롤 가능 영역 */}
       <div ref={leaderboardRef} className="h-[440px] overflow-y-auto overflow-x-hidden scrollbar-hide">
         <div className="space-y-[17px]">
-          {sortedChains.map((chain, index) => {
-            const rank = index + 1;
-            const isSelected = selectedChainIds.includes(chain.id);
-            
-            // 색상 결정: 선택된 항목만 흰색, 나머지는 회색
-            const textColor = isSelected ? 'text-text-primary' : 'text-text-tertiary';
-            const barColor = isSelected ? 'bg-white' : 'bg-text-tertiary';
-
-            return (
-              <div
-                key={chain.id}
-                className={`w-[400px] h-[36px] flex items-start cursor-pointer hover:opacity-80 ${selectedChainIds.length >= 4 && !isSelected ? 'opacity-50' : ''}`}
-                onClick={() => handleChainClick(chain.id)}
-              >
-                {/* Rank Number - 9px 너비, 상단에서 9px 오프셋 */}
-                <span className={`text-base font-normal ${textColor} w-[9px] leading-[18px] pt-[9px]`}>
-                  {rank}
-                </span>
-
-                {/* Chain Info - 24px 간격 후 너비 */}
-                <div className="w-[375px] ml-[15px]">
-                  {/* Name and Score Row - 높이 18px */}
-                  <div className="flex justify-between items-center h-[18px] gap-[10px]">
-                    <span className={`text-base font-normal ${textColor} leading-[18px] truncate`}>
-                      {chain.name}
-                    </span>
-                    <span className={`text-base font-normal ${textColor} leading-[18px] shrink-0 min-w-[18px] h-[18px] text-right`}>
-                      {chain.score}
-                    </span>
-                  </div>
-
-                  {/* Score Bar - 높이 18px, 바는 중간에 위치 */}
-                  <div className="relative h-[18px] w-[375px]">
-                    {/* Background Bar */}
-                    <div className="absolute top-1/2 -translate-y-1/2 w-full h-[4px] bg-border-card rounded-full" />
-                    {/* Score Bar */}
-                    <div
-                      className={`absolute top-1/2 -translate-y-1/2 h-[4px] left-0 ${barColor} rounded-full`}
-                      style={{ width: `${(chain.score / maxScore) * 100}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {rankedChains.map((chain, index) => (
+            <RankingItem
+              key={chain.id}
+              chain={chain}
+              rank={index + 1}
+              isSelected={selectedChainIds.includes(chain.id)}
+              isDisabled={selectedChainIds.length >= 4 && !selectedChainIds.includes(chain.id)}
+              maxScore={maxScore}
+              onClick={() => handleChainClick(chain.id)}
+            />
+          ))}
         </div>
       </div>
     </div>
   );
 }
 
-export default RankingChart;
-
+export default memo(RankingChart);

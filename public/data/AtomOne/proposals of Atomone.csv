@@ -1,0 +1,18 @@
+id,title,type,status,timeSubmit,timeVotingStart,timeVotingEnd,txHash,txHeight,proposer,voteYes,voteNo,voteNoWithVeto,voteAbstain
+18,AtomOne v3 Upgrade,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1761218686000,1761219059000,1763033459000,undefined,5512655,atone1zrp3cnmqg7rlr7n4mc3cfl4khn5p9a2fpeagqq,22781431.681963,2407.637848,0,987.634147
+16,Constitution Amendment,/atomone.gov.v1.MsgProposeConstitutionAmendment,PASSED,1760608215000,1760680232000,1762494632000,undefined,5407836,atone1sa42hn5fuupm5wpgz6msx4nmrpec6az9c3efck,26120480.787403,4869.51936,0,1356.631993
+15,Signaling proposal to add the DynamicFee module Resubmission,Text,PASSED,1755715489000,1755765051000,1757579451000,undefined,0,null,12578483.515903,1204.500279,0,52286.392388
+14,Signaling Proposal for Minting PHOTON from 50 of ATONE in Community Pool and 90 of ATONE in Treasury DAO,Text,PASSED,1753751668000,1753787168000,1755601568000,undefined,0,null,12241248.209572,41870.568387,0,18204.866121
+13,Signaling proposal to add the DynamicFee module,Text,REJECTED,1753730898000,1753743514000,1755557914000,undefined,0,null,7768543.572611,26115.831938,0,10191.62791
+12,Signaling proposal for the Nakamoto bonus,Text,PASSED,1753112451000,1753115518000,1754929918000,undefined,0,null,14416084.088903,2779.702624,0,8500.308489
+11,Signaling proposal to make the governance quorums dynamic,Text,PASSED,1752741153000,1752746207000,1754560607000,undefined,0,null,14524216.641169,2392.155823,0,7137.61114
+10,Set PHOTON as the only fee token,/atomone.photon.v1.MsgUpdateParams,PASSED,1752025020000,1752025020000,1753839420000,undefined,0,null,19510366.642878,8261.952648,0,3752.25105
+9,Signaling proposal for new model to make proposal deposits dynamic,Text,PASSED,1746693133000,1747059645000,1748874045000,undefined,0,null,17244082.507359,1213.392869,0,5041.265544
+8,FIXED AtomOne v2 upgrade,/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade,PASSED,1746104682000,1746105939000,1747920339000,undefined,0,null,17387947.419419,27848.890351,0,853.378508
+7,AtomOne v2 upgrade,/atomone.gov.v1.MsgExecLegacyContent,REJECTED,1746095519000,1746095519000,1747909919000,undefined,0,null,3003866.098083,155748.413154,0,38753.344852
+6,Signaling proposal to make proposal deposits dynamic,Text,REJECTED,1742332345000,1742400623000,1744215023000,undefined,0,null,6502726.685599,437035.902064,0,13324.420006
+5,Signaling proposal to add the PHOTON token,/atomone.gov.v1.MsgExecLegacyContent,PASSED,1741925281000,1741992433000,1743806833000,undefined,0,null,22459323.478045,3328.540153,0,3466.556586
+4,Proposal for AtomOne Logo Selection Option 2,/atomone.gov.v1.MsgExecLegacyContent,REJECTED,1734489638000,1735667032000,1737481432000,undefined,0,null,1112261.876585,499501.852587,0,32513.783303
+3,Proposal for AtomOne Logo Selection Option 1,/atomone.gov.v1.MsgExecLegacyContent,PASSED,1734489240000,1735666737000,1737481137000,undefined,0,null,11796714.678034,55411.814303,0,28212.112464
+2,Constitution Proposal Ratification,/atomone.gov.v1.MsgExecLegacyContent,PASSED,1733716295000,1734358646000,1736173046000,undefined,0,null,8222902.403092,21,0,682.057595
+1,IBC Transfers Enablement Proposal,/atomone.gov.v1.MsgExecLegacyContent,PASSED,1733392179000,1733521161000,1735335561000,undefined,0,null,17265223.810163,606.052101,0,507.401411

@@ -1,0 +1,173 @@
+address,moniker,commission,rank,token,votingPower,timestamp
+bandvaloper1wja9nds8klxcjurvxerdsun4t52zfjvqpj6y54,Knuth,1,1,9420359,0.104382,1765152000000
+bandvaloper1m88fha4982ev7smptzu8a7wvt8wkxdvfewh2md,Tarjan,1,2,9415248,0.104325,1765152000000
+bandvaloper128dkddh98pfwdxg07t36fxedczthg0p2mdcs42,Hamming,1,3,8702269,0.096425,1765152000000
+bandvaloper1r00x80djyu6wkxpceegmvn5w9nx65prgqhxkzq,Dijkstra,1,4,8498085,0.094163,1765152000000
+bandvaloper1f6htx23e4xfu0dkpa2ck2kk63la2ej947cq0w4,Kruskal,1,5,8458861,0.093728,1765152000000
+bandvaloper153znf8a89gmunexzrg2ud2yz47gyer9c05t2l8,Binance validator,0.025,6,4772904,0.052886,1765152000000
+bandvaloper17d3uhcjlh4jyqcep82jfsrg8avsngklxxan5tg,Cosmostation,0.1,7,3453905,0.038271,1765152000000
+bandvaloper1ycs4g7xu8wmf7n4vwwtfsvhtfm7tekvwk34rxz,sorawit,0.1,8,3072094,0.03404,1765152000000
+bandvaloper1c9ye54e3pzwm3e0zpdlel6pnavrj9qqvn4hl7n,Nansen  Stake to Stack Points,0.1,9,2626336,0.029101,1765152000000
+bandvaloper1q894x7p4ugl3q5l47e8ksll5k5lmx74fxqez5y,BHarvest,0.1,10,2550498,0.028261,1765152000000
+bandvaloper15urq2dtp9qce4fyc85m6upwm9xul3049fz627w,Chorus One,0.1,11,2506720,0.027776,1765152000000
+bandvaloper1nqmeykpnqdccxf2kfqnwszy748ll3qlzu0heyt,Active Nodes,0.069,12,2088013,0.023136,1765152000000
+bandvaloper14kn0kk33szpwus9nh8n87fjel8djx0y0wz502z,Forbole,0.1,13,2017297,0.022353,1765152000000
+bandvaloper1lksevk5362eterq75haf7wxx6jdpgdzyd9ms9h,Wanchain,0.1,14,1558270,0.017266,1765152000000
+bandvaloper1dr64r506ln5n3aqqgkccf56uwdd9d9jvlh9l4p,HashKey Cloud,0.1,15,1548026,0.017153,1765152000000
+bandvaloper10grrhfawl98ypn5x25zmqcp8f20eg9sw56v3e0,Citadelone,0.05,16,1204255,0.013344,1765152000000
+bandvaloper1cuc594q8uam3rx90tztgplssnymlqnr5epmsjq,Wellstake,0.1,17,1146808,0.012707,1765152000000
+bandvaloper1cmx8hvx8pn9ezuc57rgy3dqqlkju6uph3mjwxs,polkachucom,0.01,18,1041576,0.011541,1765152000000
+bandvaloper14wuzcsyttmyedc7e7z7e0exhg8k94x6eulj6pt,Ubik Capital,0.1,19,1031116,0.011425,1765152000000
+bandvaloper1p26kdh5fx24qz9xa5jtjje8ha8ee9q44nrsc8c,Stakecito,0.05,20,1030080,0.011414,1765152000000
+bandvaloper1qgvcttnjx3enjqg9pnhclt6d4z7qdknavg4q9c,WeStaking,0.1,21,1019346,0.011295,1765152000000
+bandvaloper1lvnlajgsn6mkx0p33g7ge6jyfpjlhrpv7clhqk,Imperatorco,0.1,22,1009639,0.011187,1765152000000
+bandvaloper1aqqfs9dftsmdnp3tuzqfvpwd4768mj42pd67ea,htx,0.1,23,1000001,0.01108,1765152000000
+bandvaloper1hln9scsl9yqup8nxyum06rmggql5m5zqwxmt3p,InfStones,0.1,24,1000000,0.01108,1765152000000
+bandvaloper1nguv0kdayw7qhy6d354el4f87d67ynt52wrdk3,Stake Shark,0.1,25,958211,0.010617,1765152000000
+bandvaloper1y6cjh2xy6550kw63wxzgyse85vxues809z3sys,Finality,0.05,26,802238,0.008889,1765152000000
+bandvaloper1pp534se9rmt59d5zkv4p8cp6jj5zxm4uxdhejs,Enigma,0.05,27,700356,0.00776,1765152000000
+bandvaloper1unfg2zhnssl07tql8d85zc6rx7zsfs5qh206av,StakeCraft,0.1,28,605613,0.00671,1765152000000
+bandvaloper1uytng9pl50mtedmsdrzanvy8vgxttvysw59ugd,HighStakesch  Daily Airdrops,0.05,29,538723,0.005969,1765152000000
+bandvaloper1hcu2spr3r80v36us40mg938f5qhaqq2qeajtfv,Stakewollecom  Autocompound,0.04,30,536091,0.00594,1765152000000
+bandvaloper1qzl2ckmfv83w4f65rf77utuc5jmhtexpjxjyzw,BitNordic,0.05,31,512339,0.005677,1765152000000
+bandvaloper1hdw8pzr79y4at0teak0mwcrjhv3e6n3wegfv2m,w3coins,0.1,32,511099,0.005663,1765152000000
+bandvaloper13vd9rzgytsvcm278ufehsvdvg2kky2djwjguq7,0basevc,0.1,33,408689,0.004528,1765152000000
+bandvaloper1zm5p8gg3ugjcdwz9yrxaf6fdptxa4gw04rplr9,figment,0.1,34,389730,0.004318,1765152000000
+bandvaloper1xs2penspev206jj0egh5qu7qmr6mjzfgj299xl, AutoStake  Slash Protected,0.1,35,324180,0.003592,1765152000000
+bandvaloper1ev4ylm9q6kyzsck3t6sw0h86zev95cfxzkn4cz, CryptoCrew Validators IBCgang,0.05,36,314197,0.003481,1765152000000
+bandvaloper10s7t8prp0nz36g4dug5ftkm8elyg9hdtlpn6uv,StakeLab,0.05,37,311632,0.003453,1765152000000
+bandvaloper17s35yz3rglx7pnjppm4u9l9ht2k9mr9tq0eyh6,Stakeflow,0.1,38,301815,0.003344,1765152000000
+bandvaloper1fzhy0swda9ajmtqeh0ch8v59ngnwsy8ys2dhv9,Cosmos Spaces,0.08,39,301532,0.003341,1765152000000
+bandvaloper15ak2q82ddzhxfdgcah34sfxjr7gqchmm4qssqc,StakingCabin,0.05,40,300350,0.003328,1765152000000
+bandvaloper1qcncyz7lk6am048zhuyh2vv47ymf929lpdfd7d,ContributionDAO,0.1,41,300049,0.003325,1765152000000
+bandvaloper1h9a8wasp8zvj8h06mp7tlm0eetgacafkyfqapc,TTT VN,0.1,42,300016,0.003324,1765152000000
+bandvaloper1ppycvs7hfnw37aghc9mc58zy9al793sr4mwxjg,NodesGuru,0.1,43,300003,0.003324,1765152000000
+bandvaloper1plau7keptn9qdt7nmhphltakv5t054f8lgwjdn,Meria,0.05,44,295207,0.003271,1765152000000
+bandvaloper1l8zzhhe3ltlkk7sd38rcw7u6g9d609t2etc2zp,node101,0.05,45,250049,0.002771,1765152000000
+bandvaloper147k9e3ssy8yh2xjqmgjc8pnvwgzrl4g2fj306s, Hub,0.1,46,239773,0.002657,1765152000000
+bandvaloper1tfej533yf07npx6cpl989k5mqrpdn4hdsuyqya,Antrix Validators,0.1,47,235233,0.002606,1765152000000
+bandvaloper12v3458kg298ckge36lsqafmmggj3pywj062p2q,Inter Blockchain Services,0.05,48,201323,0.002231,1765152000000
+bandvaloper13xe7vcptjcrj9jz3z0vu80tgmarxay99c2ucpn,BronBro,0.05,49,201022,0.002227,1765152000000
+bandvaloper1mfvez2maqvh4p07gvmq67ek2ul3ua4f8lgpg7n,CrowdControl,0.01,50,112741,0.001249,1765152000000
+bandvaloper16c9s32mr3q59w6dupwreh5yyzu20nlp3ctxapu,Atlas Staking Autocompound Rewards,0.09,51,102492,0.001136,1765152000000
+bandvaloper18fdf6hxw2y2u55xwhhplq438awuk52r27a9ghu,Discontinued,0.085,52,70776,0.000784,1765152000000
+bandvaloper1lgctql28g09l4a829teqev0mpqcup6vu2he8el,feelmining,0.03,53,53356,0.000591,1765152000000
+bandvaloper1yz8rv4ptfgs5fd68jam3732p9smma7ceun3xqv,ICON Foundation,0.1,54,52555,0.000582,1765152000000
+bandvaloper1g07e0vqcqpxax93uwn8sqgx4tse5n5g5h7vlyg,Fantom Foundation,0.1,54,50016,0.000554,1765152000000
+bandvaloper1vvevlfz7r9xrj9kghhguw8ygwvv9x3duldlw3j,Pickle Banddd ,0.1,54,46066,0.00051,1765152000000
+bandvaloper1jyze35artdzs5nhvalt6jnatzhg5z88rfpmv27,DO NOT DELEGATE  Everstake,0.1,54,45014,0.000499,1765152000000
+bandvaloper1vnsqgwu7jxd49u99etdzt028kkgwvuvz5x6lty,StakeSabai,0.1,54,43922,0.000487,1765152000000
+bandvaloper1wwl9d8gvpktdjhdpzxe9yupunpkthzayysf2hn,Please redelegate  Shutting down,0.05,54,25063,0.000278,1765152000000
+bandvaloper1595hec3hxlag3a2p97t2geruhv58zmyzr4euux,stakefish,0.1,54,20582,0.000228,1765152000000
+bandvaloper1gqsyphjwkqnp8ahffzx2ul2txru8jaztr3fzdg,Snow Fall,0.05,54,18175,0.000201,1765152000000
+bandvaloper1nmlds05h9zpj0m3actleslnmf5ett8xfvmjgju,Shutdown  please redelegate,0.05,54,17736,0.000197,1765152000000
+bandvaloper16gt0r924p830qmjkam7rcnlmfaxx5336t4zhnf,Data Nexus,0.1,54,9816,0.000109,1765152000000
+bandvaloper13przl6h5hjmms2xcn38uu0zz3p9kzrdm9s7nv6,DO NOT DELEGATE  ChainodeTech,0.07,54,7172,0.000079,1765152000000
+bandvaloper1lxqh84ca9x40krrchq9nrdm2hwhyja2q0hc3cl,SolidOne,0.03,54,6837,0.000076,1765152000000
+bandvaloper1nzfwx85yjjar55fft72vj72lg6pfgzfz6dsrgm,Discontinued,0.05,54,6653,0.000074,1765152000000
+bandvaloper1zsd6xc82dv2lqtt6hx9ew6hptlvtk0nyk7elqw,SargatxetPool,0.1,54,5223,0.000058,1765152000000
+bandvaloper1jwkmyym5kuj4spu6jnvr73f27nexq6jvc9mpkl,ChainLabo,0.02,54,4043,0.000045,1765152000000
+bandvaloper1dndwcqre8wjnk4086vr76nu28q5lhnlsu36td8,Crypto Lion ,0.05,54,2546,0.000028,1765152000000
+bandvaloper1vyv7l5qyakgnz2y006jq2xawdr3hnezxlylgtw,MANTRA DAO,0.05,54,2189,0.000024,1765152000000
+bandvaloper1ufg3yw83azadqr7g4p88pc3z2uraacwteejqzw,ThomasBlockio,0.04,54,1950,0.000022,1765152000000
+bandvaloper14m538kv607xpcvpef6zrk2uhavpr8katfq2s8z,Woodstock,0.08,54,1480,0.000016,1765152000000
+bandvaloper1948raua2qwgn6rcstgdtk4wyg2zypc2680lej7,Injective Labs,0.1,54,1376,0.000015,1765152000000
+bandvaloper13jgj2fu2wc0pff7wnsang3m9xt3k67u8zdd5n5,TaiPanich,0.05,54,1359,0.000015,1765152000000
+bandvaloper1xhhxypktn0v6zund3nzkfv5gfvs0ughe234xl9,blockscape,0.05,54,1292,0.000014,1765152000000
+bandvaloper17fjwhmuvgh8lugky0kgz0ejzrt5zplp83zq0l7,StakeProofxyz,0.01,54,1153,0.000013,1765152000000
+bandvaloper17dw8k6t26r4ueylctf792qssy6sscu93sucxvh,Bitcoin Addict Thailand,0.1,54,1079,0.000012,1765152000000
+bandvaloper1z5nwqcxltx89zt07jmw9jtx2jlerawsauptl6j,Trivium  TriviumNetwork,0.01,54,1039,0.000012,1765152000000
+bandvaloper1kkaderm3sae8l33pmv47rr5u6k4pzy0rgs9ryx,PerfectStake,0.02,54,939,0.00001,1765152000000
+bandvaloper12wzzlxntkpf7sx6cqkvp0m2tfjxhqwa02rewqt,Oni ,0.05,54,927,0.00001,1765152000000
+bandvaloper1tn296zetsy7tlk5365xhlxp5dk56w2naytgud7,ITpro,0.01,54,762,0.000008,1765152000000
+bandvaloper1hddt2r0e7nfcdmy87xr3nxlzwqxh6fvcvnpceu,TOT AI BOT FREE,0.026,54,524,0.000006,1765152000000
+bandvaloper12vctshhhpksuxfmkslrqqg74euesvskxchvnqd,Bi23 Labs,0.01,54,347,0.000004,1765152000000
+bandvaloper1y0pw9v0km2a9dx0gvlc5hvuk4vjwgsv94mds98,Woodstock Fund,0.1,54,279,0.000003,1765152000000
+bandvaloper17zl6zwq26snsvcm5w7yae8ju9glruwmjeg2agj,Earn Network,0.01,54,253,0.000003,1765152000000
+bandvaloper1em0rejsr2wva5flz7fv9qkx6wc755cvcqe9teq,RedelegateShuttingDownd,0.03,54,247,0.000003,1765152000000
+bandvaloper1yt682mnahn52zqv8pfukr43mqjys9nf22cq3td,DO NOT DELEGATE,0.045,54,240,0.000003,1765152000000
+bandvaloper1fyn907tzlxknxgmvkjvmhgksf7t3zwjlcd6a0a,DO NOT DELEGATE  Chorus One,0.12,54,237,0.000003,1765152000000
+bandvaloper1k8u9cqf6ejr5nm7prxk46el4gcxvv58clx8j9m,Stakyio,0.03,54,208,0.000002,1765152000000
+bandvaloper1ejnk6k8ny3y5kwr234m3y32p7dxsx2a0wvcpyl, Ryabinaio ,0.0999,54,201,0.000002,1765152000000
+bandvaloper1e794d7mk245mr62e6mf67zaqpxweufe5wcf552,deleted,0.1,54,189,0.000002,1765152000000
+bandvaloper1y42hgl7dgxswpe3mv5gknsrzfn9xy4t44ep6yh,Consensus One,0.05,54,187,0.000002,1765152000000
+bandvaloper19huytqr8srz9wcdhvas5cvxddg8dtqcv6tce0s,Notional,0.0969,54,146,0.000002,1765152000000
+bandvaloper1n7jc3hyxsdj693qpwvnzcer5cluuadj7lq5u38,legacy,0.05,54,114,0.000001,1765152000000
+bandvaloper1symf474wnypes2d3mecllqk6l26rwz8melsedq,BlockHunters ,0.04777,54,114,0.000001,1765152000000
+bandvaloper1c6u3225mjp7a9pa7wh9qky9gd5zjygwq7ntwyj,PoorButHappy,0,54,113,0.000001,1765152000000
+bandvaloper1v7teuxaulwukplu90f0ra60vs2xpqystg89g95,HTC,0.2,54,110,0.000001,1765152000000
+bandvaloper1q4nrju47un2hchqvxkynyfknav0anf6uhya2h6,AG,0.05,54,107,0.000001,1765152000000
+bandvaloper1494evhvcqrc093csfx4ukulgfm8lmgv60qhmd2,AcuStake,0.1,54,101,0.000001,1765152000000
+bandvaloper18plz4ccc6x6heetcfxsx7vc9n3cmtj56huztxe,DLINODESCOM,0.0777,54,100,0.000001,1765152000000
+bandvaloper1dvgc4ew8amqyh027ausklwshh44gdsm0pj6rl5,Seasting,0.05,54,99,0.000001,1765152000000
+bandvaloper157jzxupqvcrk29cmdnxgwpy947za08aw9tq5re,RetiringRedelegate,0.01,54,87,0.000001,1765152000000
+bandvaloper1trqklxpy9ztvzlqze9q5ez0x2cffv2fdf0kc0r,Coha05  Spider Node,0.05,54,83,0.000001,1765152000000
+bandvaloper1apk4t9v58tc3pwnf2e532x9dmk2ev2n3l86402,Closed Please redelegate,0.05,54,80,0.000001,1765152000000
+bandvaloper1uvva6zfmlkuy3ussja4xjk8wh8w5gkztqqlqca,JNode,0.05,54,79,0.000001,1765152000000
+bandvaloper1q4sta02v9tfssnsdnpj3ephygay2vdelqdqaup,Jelly,0.05,54,73,0.000001,1765152000000
+bandvaloper1ty2mytdkel96e8llkaezn43vnj0ghm4p5dl8xv,Valnodes  Carbon Neutral Staking,0.0314,54,60,0.000001,1765152000000
+bandvaloper13fwr8rmugu2mfuurfx4sfmyv05haw9sujnqzd8,Please REDELEGATE to StakeCraft in example  closing here at 25th may,0.1,54,54,0.000001,1765152000000
+bandvaloper15cwzfw82mwzw9jdaf5zf87dn6uqmgpnx7wats4,Coef 120,0.05,54,51,0.000001,1765152000000
+bandvaloper16rfxcd3geg4m8rlc29jk4mlvjn77lem8m2fl6h,HOKUTO,0.1,54,51,0.000001,1765152000000
+bandvaloper1xe9jskfstmnk4rwm7v4d8x5vs3gdzte3qu0erk,morkiestakes,0.01,54,49,0.000001,1765152000000
+bandvaloper1rqmfuu2c3s6yjg53fczra28ar6fsea90n72krd,Endorphine Stake,0.1,54,49,0.000001,1765152000000
+bandvaloper1k7r8pg244papul57vvzd8de8yu3lsng0zrd33u,Vixello,0.05,54,45,0.000001,1765152000000
+bandvaloper1256mfjwcefpfh339ajqrmpgw7pxxjnzl5dmsc9,GIANTCLUB,0.1,54,44,0,1765152000000
+bandvaloper16n2cazl94n47zknt5uspxgv90p23wpek6agqe2,Closing  Please redelegate,0,54,39,0,1765152000000
+bandvaloper1pjhgksl4nhrahxam6l6fg4v8z8r5c68504szuq,Moniker,0.05,54,38,0,1765152000000
+bandvaloper1l2zm3g6l0aqrcwn84g4540krglmd4vvywd86w3,retz80,0.09,54,38,0,1765152000000
+bandvaloper1nmd2mmxve9t0qca5ln8zqak7dlhrxylf0xw5zs,Chainnodes,0.02,54,37,0,1765152000000
+bandvaloper13w67kucjvfcjr3du33fptqqpag5cgjqksv9sxt,shuting down,0.01,54,36,0,1765152000000
+bandvaloper1vjlsw58ap5gdvw6w7z7mjnh38ukdg3xw708wqu,DO NOT DELEGATE  0basevc,0,54,33,0,1765152000000
+bandvaloper1359wrxxvs2js7vrant548af4zp72hu2mgftm2e,StakeUp,0.1,54,33,0,1765152000000
+bandvaloper1wy08smy5xpwrm3xju7z9usnat90vvp39etv7gh,NODERS,0.1,54,32,0,1765152000000
+bandvaloper19hvz9nkgg6mp7v7hx7ueaa9fjc80axsratdr09,0 FeeNymbusNode,0,54,31,0,1765152000000
+bandvaloper1nmkj68wrrwl9nr9qylc9yy20fjx08gcfgwgnam,FIVETECH,0.05,54,30,0,1765152000000
+bandvaloper1gskdp65zqm8cz9u5tkypycz33jh5g0hyvgdzzq,SerGo,0.1,54,30,0,1765152000000
+bandvaloper1mk0ecs409xu3wc3dp09umfjmaw06pxsr4hk6u9,ASTRALISK,0.05,54,29,0,1765152000000
+bandvaloper1k85y0j5dg6l9cqc793vut85wawm460sljv9y28,PHnetwork,0.1,54,28,0,1765152000000
+bandvaloper1e2ksk2qw5wk4a996kj0mp9gucpr96ljnf3r358,STAVR REStake ON,0.1,54,25,0,1765152000000
+bandvaloper1wlgfyk9mx9ms6jgvupxmx6dl0f85xmvrtdpdew,indistock,0.1,54,24,0,1765152000000
+bandvaloper1tgjce0fdluaafs3d2ddclxlu0euvvvnf5gd7ww,Shoni,0.1,54,23,0,1765152000000
+bandvaloper1773hsqxld5rgd53g2mt2yr94fl20re63ffx6q5,BlackIce,0.07,54,20,0,1765152000000
+bandvaloper15mpftgqh4w8dz5ayaeq49s4n8lmyx27kee74zf,Chainp2p,0.03,54,19,0,1765152000000
+bandvaloper1vsdzup4ucv28vcp8lgwe7t4jympkwjwzcga0zp,BlockShark,0.03,54,19,0,1765152000000
+bandvaloper1c34u63fdagur6xfmnu2d50242d3kszl9wnulk8,ARCTIC,0.05,54,16,0,1765152000000
+bandvaloper13d3krtk9lwkl8d07pg92090f9xrgwywd7f58kn,DECOMMISSIONED AUDITone,0.07,54,13,0,1765152000000
+bandvaloper19ang3d293gsqe64wakp7t0h5s4crrxr7vp7trm,NodeX Emperor,0.05,54,11,0,1765152000000
+bandvaloper15nnme8tz4hqvcd9aufjetemwf9py20khaannu2,Nosce,0.05,54,10,0,1765152000000
+bandvaloper157vs5a5tqt2kkkht95azwg9pa77z8hwk3ae5ee,DECALIio,0.05,54,10,0,1765152000000
+bandvaloper1d00ke0s7r2eqjg4qf0p2rwtc72cdql9p3zskhn,Mintia Decentralized  No slashing,0,54,9,0,1765152000000
+bandvaloper1m0pn05sa397rtjxkjxj2vrms4cj60ugd7yhzlw,EthicalNode,0.1,54,9,0,1765152000000
+bandvaloper1xg5qq37zrdtsaf5qa60xhlj6xqnxafuhnr934u,OWALLET,0.01,54,9,0,1765152000000
+bandvaloper1qf73zvv3jquf2znwx2qc7tkmgtz7tvq4dn65u7,Anchor Staking,0.03,54,9,0,1765152000000
+bandvaloper1w4jrw76q55vksjjm9d9qx76auyk8gxkhdtllgv,RN0X,0.1,54,8,0,1765152000000
+bandvaloper1u7rlfnl6gq5ehkxhk5cesn3ufmfxlcf3wrljd0,ShaolinNode,0.1,54,8,0,1765152000000
+bandvaloper1vztfffufyu5f3lug7pj4pp3c3lxc898e7v5slj,Calypso,0.1,54,8,0,1765152000000
+bandvaloper1l6sskrveh0afjeqm7mn9lm83xlulkwg7z8sdqy,Sunset redelegate to another validator please,0.1,54,8,0,1765152000000
+bandvaloper1fd9m05k39lrwq2qyw3rszt7wumdm2s5m42k2n2,Wetez,0.1,54,8,0,1765152000000
+bandvaloper17vzyy636a3zluzrq7u7mhrkl3wrfa29wh7lg6p,Lefey,0.1,54,7,0,1765152000000
+bandvaloper1f3fxlynz5jdpnf77g9es0cjxwlwr05sc8tz0fe,Biker4b,0.05,54,7,0,1765152000000
+bandvaloper123qvcqtxu6a6lcdhsr2q52ta8khsj3g8szcssq,Mich452,0.04,54,6,0,1765152000000
+bandvaloper1um2flgfvteyyjsaxf85tjku8tdhcqhtpwaxpat,SeaX Ventures,0.06,54,6,0,1765152000000
+bandvaloper1v8ghn09qv5jzxd8g7unsttrqntn67gkth5eq5f,Helion Band Validator,0.1,54,5,0,1765152000000
+bandvaloper1hg2p4397wssj8ttger9rphafxpcdz6nvngskxr,BANDITS,0,54,5,0,1765152000000
+bandvaloper18pvhw57fxtt0yh4ut55f2k9adshzyp7mqsu36y,skynodes,0.01,54,5,0,1765152000000
+bandvaloper19esqej9q2uffhjj5d3d23lsd0fuafxhdm98g2d,pathrockmclb,0.1,54,4,0,1765152000000
+bandvaloper1pvwmcawgl0h8cwje2gcv46r9l34u9crc8tc6hj,STAKKY,0.05,54,4,0,1765152000000
+bandvaloper108jvszyayzzaacpscwczj7lvegq799wa9muyyu,BitMaxStaking,0.1,54,4,0,1765152000000
+bandvaloper1m3fdqwp27vq3jncjtvrd5vqn74femut6kfsd0z,testvalidator,0.1,54,3,0,1765152000000
+bandvaloper1sh7u6c0g2s5ysg6c69pywnn55jx5wel7cstm7s,TheBestNode,0.05,54,3,0,1765152000000
+bandvaloper1u6439zrwzrk7p943v0gtzmkewwg9yrthju9dra,BlockSensus,0.1,54,3,0,1765152000000
+bandvaloper1a2gppugantns8zad44dpdwew2dln4kfzkajgk4,0 Fee to 2023  Avaultocom,0,54,3,0,1765152000000
+bandvaloper1p7s39hake3mujfh4arees94zt9zdwfzpuzmjnj,0 fee  Avaultocom,0,54,2,0,1765152000000
+bandvaloper1datx5lw9nsys67er535xwrdky96mttt54vsk6v,JJack,0.1,54,2,0,1765152000000
+bandvaloper1wxqdw43g8sz9vxfhmnrc7shsy9r3lq2782knl2,NilniaBand,0.05,54,2,0,1765152000000
+bandvaloper13trvxrt2ua7k7q80hgxspqvq9zecz86dpc8fqn,masternode,0.1,54,2,0,1765152000000
+bandvaloper1k8szgnmljy0kd90wmv4rrp7mqx6zw9vxdknk4x,Validatorrun  100 Slash Protected,0.05,54,2,0,1765152000000
+bandvaloper17qe0qs34zp9rtxdc6an58rl0ys24g8wu5krr6d,RootsterLabs,0.1,54,2,0,1765152000000
+bandvaloper1val7t7e48tyxutjhg5ra4pd0485z0fs8q23g6e,QuantaTech,0.05,54,2,0,1765152000000
+bandvaloper1gv2gnnqa5gs924mrenz2y4m5aadefwvgxq5nzr,Terraform Labs,0.02,54,2,0,1765152000000
+bandvaloper1aw58v3l9yrk262fjr9ah0c0a39xf9hwr4yw04u,stake9,0.05,54,2,0,1765152000000
+bandvaloper1yhj9uqacyjrqyt58d548ywayhw52ff524tw3gh,NQ4NET,0.09,54,2,0,1765152000000
+bandvaloper1ufjqrau2w0vjd84e5sp86lcvyn4ktqdet9mgs5,StableNode,0.05,54,2,0,1765152000000

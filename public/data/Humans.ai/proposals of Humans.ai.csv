@@ -1,0 +1,3 @@
+id,title,type,status,timeSubmit,timeVotingStart,timeVotingEnd,txHash,txHeight,proposer,voteYes,voteNo,voteNoWithVeto,voteAbstain
+2,Adjust inflation to year 2,/cosmos.gov.v1.MsgExecLegacyContent,PASSED,1741788876000,1741788876000,1742220876000,undefined,9735287,human1t2jrup5hzh8upuyh9m80q4s8f5gzrqaxj68xfl,1821882202.9600043,123817.01853152573,0,0
+1,Enabling inflation on the Humansai network,/cosmos.gov.v1.MsgExecLegacyContent,PASSED,1706881550000,1706881942000,1707313942000,undefined,3720425,human1symf474wnypes2d3mecllqk6l26rwz8mwf6ktu,632693360.4120353,0,0,451248
