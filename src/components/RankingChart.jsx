@@ -14,16 +14,16 @@ const RankingItem = memo(function RankingItem({
 
   return (
     <div
-      className={`w-[400px] h-[36px] flex items-start cursor-pointer hover:opacity-80 ${isDisabled ? 'opacity-50' : ''}`}
+      className={`w-full h-[36px] flex items-start cursor-pointer hover:opacity-80 ${isDisabled ? 'opacity-50' : ''}`}
       onClick={onClick}
     >
       {/* Rank Number */}
-      <span className={`text-base font-normal ${textColor} w-[18px] leading-[18px] pt-[9px] text-right`}>
+      <span className={`text-base font-normal ${textColor} w-[18px] leading-[18px] pt-[9px] text-right shrink-0`}>
         {rank}
       </span>
 
       {/* Chain Info */}
-      <div className="w-[365px] ml-[17px]">
+      <div className="flex-1 ml-[17px] min-w-0">
         {/* Name and Score Row */}
         <div className="flex justify-between items-center h-[18px] gap-[10px]">
           <span className={`text-base font-normal ${textColor} leading-[18px] truncate`}>
@@ -35,7 +35,7 @@ const RankingItem = memo(function RankingItem({
         </div>
 
         {/* Score Bar */}
-        <div className="relative h-[18px] w-[365px]">
+        <div className="relative h-[18px] w-full">
           {/* Background Bar */}
           <div className="absolute top-1/2 -translate-y-1/2 w-full h-[4px] bg-border-card rounded-full" />
           {/* Score Bar */}
@@ -128,7 +128,7 @@ function RankingChart({ rankedChains, selectedChainIds, onSelectChain, onRemoveC
       </h2>
 
       {/* Search Bar with Dropdown */}
-      <div className="relative mb-[25px] w-[400px]">
+      <div className="relative mb-[25px] w-full">
         <div className="relative h-[50px]">
           <input
             type="text"
@@ -168,7 +168,7 @@ function RankingChart({ rankedChains, selectedChainIds, onSelectChain, onRemoveC
 
         {/* Dropdown List */}
         {isDropdownOpen && (
-          <div className="absolute top-[55px] left-0 w-[400px] max-h-[350px] bg-bg-dark border border-border-card rounded-[10px] overflow-y-auto scrollbar-thin z-50">
+          <div className="absolute top-[55px] left-0 w-full max-h-[350px] bg-bg-dark border border-border-card rounded-[10px] overflow-y-auto scrollbar-thin z-50">
             {filteredChains.length > 0 ? (
               filteredChains.map((chain) => (
                 <DropdownItem

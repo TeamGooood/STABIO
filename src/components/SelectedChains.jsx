@@ -7,12 +7,12 @@ function SelectedChains({ selectedChains, onRemoveChain }) {
       </h2>
 
       {/* Chains Grid - 2x2 */}
-      <div className="w-[400px] h-[130px]">
+      <div className="w-full h-[130px]">
         <div className="grid grid-cols-2 gap-[10px]">
           {selectedChains.map((chain) => (
             <div
               key={chain.id}
-              className="relative w-[195px] h-[60px] border border-border-card rounded-[10px] cursor-pointer hover:bg-border-card transition-colors group"
+              className="relative w-full h-[60px] border border-border-card rounded-[10px] cursor-pointer hover:bg-border-card transition-colors group"
               onClick={() => onRemoveChain(chain.id)}
             >
               {/* Default Content - 로고 + 이름 */}
@@ -60,7 +60,7 @@ function SelectedChains({ selectedChains, onRemoveChain }) {
           {Array.from({ length: 4 - selectedChains.length }).map((_, index) => (
             <div
               key={`empty-${index}`}
-              className="w-[195px] h-[60px] border border-border-card rounded-[10px] flex items-center px-[15px] gap-[10px]"
+              className="w-full h-[60px] border border-border-card rounded-[10px] flex items-center px-[15px] gap-[10px]"
             >
               {/* 느낌표 원형 아이콘 */}
               <svg 

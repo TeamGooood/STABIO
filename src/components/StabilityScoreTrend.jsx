@@ -262,7 +262,7 @@ function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, vo
   };
 
   return (
-    <div className="bg-[#13151a] rounded-[20px] py-[30px] px-[40px]" style={{ width: 755.75 }}>
+    <div className="bg-[#13151a] rounded-[20px] py-[30px] px-[40px] flex-[756] min-w-0">
       {/* Title */}
       <h2 className="text-[20px] font-bold text-white mb-[20px]">
         Stability Score Trend

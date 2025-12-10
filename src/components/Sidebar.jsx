@@ -43,7 +43,7 @@ function Sidebar({ weights, onWeightsChange, onSelectedChainsUpdate }) {
   }, [selectedChainIds, selectedChains, onSelectedChainsUpdate]);
 
   return (
-    <aside className="w-[450px] min-h-[calc(100vh-60px)] bg-bg-base border-r border-border-card overflow-x-hidden">
+    <aside className="min-h-[calc(100vh-60px)] bg-bg-base border-r border-border-card overflow-x-hidden" style={{ width: 'clamp(300px, 23.44vw, 450px)' }}>
       {/* Weight Control Section */}
       <section className="px-[10px] pt-5 mb-[20px]">
         <div className="px-[15px]">

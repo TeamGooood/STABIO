@@ -1,16 +1,80 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { 
   RadarChart, 
   PolarGrid, 
   PolarAngleAxis, 
   PolarRadiusAxis, 
   Radar, 
-  ResponsiveContainer 
+  ResponsiveContainer,
+  Tooltip
 } from 'recharts';
 import chainScoresData from '../data/chainScores.json';
 
 // 차트 색상 (선택 순서대로, 최대 4개) - StabilityScoreTrend와 동일
 const CHART_COLORS = ['#f6465d', '#f3ba3a', '#0ecb81', '#9852ed'];
+
+// 커스텀 툴팁 컴포넌트
+const CustomTooltip = ({ active, data, chains }) => {
+  if (!active || !data || data.length === 0) return null;
+
+  return (
+    <div className="bg-[#17191f] border border-[#222631] rounded-[20px] px-[10px] py-[20px] shadow-lg">
+      {/* Chain List Header */}
+      <div className="flex gap-0 mb-[10px] min-h-[18px] py-[2px]">
+        <div className="w-[119px] flex-shrink-0 px-[5px]" /> {/* Empty space for indicator name column */}
+        {chains.map((chain, index) => (
+          <div 
+            key={chain.chainId} 
+            className="flex items-center justify-center px-[5px] min-w-[100px] flex-1"
+          >
+            <span 
+              className="text-[15px] font-bold leading-[18px] whitespace-nowrap text-center block"
+              style={{ color: CHART_COLORS[index % CHART_COLORS.length] }}
+            >
+              {chain.chainName.toUpperCase()}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Divider */}
+      <hr className="border-t border-[#222631] mb-[10px]" />
+
+      {/* Data Rows - 모든 지표 표시 */}
+      {data.map((item, idx) => (
+        <div key={idx}>
+          <div className="flex gap-0 min-h-[18px] items-center py-[2px]">
+            {/* Indicator Name */}
+            <div className="w-[119px] flex-shrink-0 px-[5px]">
+              <span className="text-[15px] font-normal text-[#a1a9c0] leading-[18px] block">
+                {item.indicator}
+              </span>
+            </div>
+
+            {/* Chain Values */}
+            {chains.map((chain) => (
+              <div 
+                key={chain.chainId}
+                className="flex items-center justify-center px-[5px] min-w-[100px] flex-1"
+              >
+                <span className="text-[15px] font-normal text-white leading-[18px] whitespace-nowrap text-center block">
+                  {item[chain.chainId] !== undefined 
+                    ? item[chain.chainId].toFixed(2)
+                    : '-'}
+                </span>
+              </div>
+            ))}
+          </div>
+          
+          {/* Divider between rows */}
+          {idx < data.length - 1 && (
+            <hr className="border-t border-[#222631] my-[10px]" />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 // 커스텀 틱 컴포넌트 - 곡선 텍스트
 const CurvedTick = ({ payload, x, y, cx, cy, index }) => {
@@ -19,7 +83,7 @@ const CurvedTick = ({ payload, x, y, cx, cy, index }) => {
   
   // 원의 반지름 (라벨 위치) - 특정 라벨은 더 멀리 배치
   const labelsNeedingFartherPosition = ['Proposal Count', 'Transaction Volume', 'Live Time'];
-  const baseOffset = labelsNeedingFartherPosition.includes(payload.value) ? 15 : 10;
+  const baseOffset = labelsNeedingFartherPosition.includes(payload.value) ? 10 : 5;
   const radius = Math.sqrt((x - cx) ** 2 + (y - cy) ** 2) + baseOffset;
   
   // 텍스트 길이에 따라 호의 각도 계산
@@ -106,7 +170,7 @@ const CurvedTick = ({ payload, x, y, cx, cy, index }) => {
       <defs>
         <path id={pathId} d={path} fill="none" />
       </defs>
-      <text fill="#a1a9c0" fontSize={12} fontFamily="Lato" fontWeight={400}>
+      <text fill="#a1a9c0" fontSize={11} fontFamily="Lato" fontWeight={400}>
         <textPath href={`#${pathId}`} startOffset={textOffset} textAnchor="middle">
           {text}
         </textPath>
@@ -207,9 +271,9 @@ function StabilityFactorAnalysis({ selectedChains = [] }) {
 
   // 레이더 차트 컴포넌트
   const RadarChartComponent = ({ data, title, chains }) => (
-    <div className="flex-1 flex flex-col items-center overflow-visible" style={{ minWidth: 220 }}>
+    <div className="flex-1 flex flex-col items-center overflow-visible min-w-0 relative">
       <h3 className="text-[15px] font-bold text-white leading-[18px] mb-[20px]">{title}</h3>
-      <div className="radar-chart-wrapper" style={{ width: 220, height: 220, overflow: 'visible' }}>
+      <div className="radar-chart-wrapper w-full aspect-square" style={{ overflow: 'visible' }}>
         <style>{`
           .radar-chart-wrapper svg {
             overflow: visible !important;
@@ -226,7 +290,7 @@ function StabilityFactorAnalysis({ selectedChains = [] }) {
           data={data}
           cx="50%" 
           cy="50%"
-          outerRadius={88}
+          outerRadius="87%"
         >
           <PolarGrid 
             stroke="#2a2d3a" 
@@ -244,6 +308,11 @@ function StabilityFactorAnalysis({ selectedChains = [] }) {
             tick={false}
             axisLine={false}
             stroke="transparent"
+          />
+          <Tooltip 
+            content={<CustomTooltip data={data} chains={chains} />}
+            cursor={false}
+            wrapperStyle={{ zIndex: 1000 }}
           />
           {chains.map((chain, index) => (
             <Radar
@@ -267,7 +336,7 @@ function StabilityFactorAnalysis({ selectedChains = [] }) {
   );
 
   return (
-    <div className="bg-[#13151a] rounded-[20px] p-[40px] overflow-visible" style={{ width: 755.75 }}>
+    <div className="bg-[#13151a] rounded-[20px] p-[40px] overflow-visible flex-[756] min-w-0">
       {/* Title */}
       <h2 className="text-[20px] font-bold text-white mb-[20px]">
         Stability Factor Analysis
