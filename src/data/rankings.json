@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2025-12-09T15:52:14.341Z",
-  "totalChains": 37,
+  "generatedAt": "2025-12-10T15:55:22.862Z",
+  "totalChains": 36,
   "period": "180 days",
   "rankings": [
     {
       "id": "injective",
       "name": "Injective",
-      "avgScore": 59.55,
+      "avgScore": 57.1,
       "metricAverages": {
-        "priceVolatility": 74.89,
+        "priceVolatility": 74.8,
         "marketCap": 23.74,
         "transactionVolume": 59.03,
         "stakingRatio": 76.81,
         "activeAddress": 79.19,
         "liveTime": 52.22,
         "nc": 33.33,
-        "proposalRate": 62.89,
+        "proposalRate": 64.49,
         "proposalCount": 64.57,
         "ibcOut": 42.78
       },
@@ -25,16 +25,16 @@
     {
       "id": "cosmos",
       "name": "Cosmos",
-      "avgScore": 58.96,
+      "avgScore": 56.75,
       "metricAverages": {
-        "priceVolatility": 84.44,
+        "priceVolatility": 84.35,
         "marketCap": 40.17,
         "transactionVolume": 50.89,
         "stakingRatio": 85.79,
         "activeAddress": 94.68,
         "liveTime": 100,
         "nc": 33.33,
-        "proposalRate": 11.36,
+        "proposalRate": 14.81,
         "proposalCount": 18.51,
         "ibcOut": 44.95
       },
@@ -44,16 +44,16 @@
     {
       "id": "osmosis",
       "name": "Osmosis",
-      "avgScore": 47.07,
+      "avgScore": 51.31,
       "metricAverages": {
-        "priceVolatility": 83.11,
+        "priceVolatility": 82.97,
         "marketCap": 2.41,
         "transactionVolume": 3.88,
         "stakingRatio": 55.61,
         "activeAddress": 45.48,
         "liveTime": 59.58,
         "nc": 88.89,
-        "proposalRate": 59.45,
+        "proposalRate": 60.47,
         "proposalCount": 63.81,
         "ibcOut": 50
       },
@@ -61,115 +61,115 @@
       "rank": 3
     },
     {
-      "id": "asi",
-      "name": "ASI Alliance",
-      "avgScore": 42.23,
-      "metricAverages": {
-        "priceVolatility": 76.61,
-        "marketCap": 32.14,
-        "transactionVolume": 62.91,
-        "stakingRatio": 54.38,
-        "activeAddress": 3.39,
-        "liveTime": 63.48,
-        "nc": 50,
-        "proposalRate": 7.37,
-        "proposalCount": 1.61,
-        "ibcOut": 50
-      },
-      "dataPoints": 180,
-      "rank": 4
-    },
-    {
-      "id": "cronos",
-      "name": "Cronos POS",
-      "avgScore": 41.13,
-      "metricAverages": {
-        "priceVolatility": 78.14,
-        "marketCap": 100,
-        "transactionVolume": 27.59,
-        "stakingRatio": 10.91,
-        "activeAddress": 12.14,
-        "liveTime": 63.77,
-        "nc": 22.22,
-        "proposalRate": 0.43,
-        "proposalCount": 2.2,
-        "ibcOut": 42.38
-      },
-      "dataPoints": 180,
-      "rank": 5
-    },
-    {
-      "id": "axelar",
-      "name": "Axelar",
-      "avgScore": 40.01,
-      "metricAverages": {
-        "priceVolatility": 76.58,
-        "marketCap": 6.53,
-        "transactionVolume": 9.11,
-        "stakingRatio": 63.34,
-        "activeAddress": 5.22,
-        "liveTime": 48.22,
-        "nc": 66.67,
-        "proposalRate": 53.5,
-        "proposalCount": 58.87,
-        "ibcOut": 43.12
-      },
-      "dataPoints": 180,
-      "rank": 6
-    },
-    {
-      "id": "sei",
-      "name": "Sei",
-      "avgScore": 39.82,
-      "metricAverages": {
-        "priceVolatility": 74.81,
-        "marketCap": 32.6,
-        "transactionVolume": 79.09,
-        "stakingRatio": 74.25,
-        "activeAddress": 9.39,
-        "liveTime": 21.21,
-        "nc": 55.56,
-        "proposalRate": 9.19,
-        "proposalCount": 6.9,
-        "ibcOut": 42.25
-      },
-      "dataPoints": 180,
-      "rank": 7
-    },
-    {
       "id": "celestia",
       "name": "Celestia",
-      "avgScore": 38.62,
+      "avgScore": 45.54,
       "metricAverages": {
-        "priceVolatility": 74.28,
+        "priceVolatility": 74.16,
         "marketCap": 23.75,
         "transactionVolume": 54.54,
         "stakingRatio": 65.7,
         "activeAddress": 34.54,
         "liveTime": 17.45,
         "nc": 100,
-        "proposalRate": 3.33,
+        "proposalRate": 41.44,
         "proposalCount": 1.12,
         "ibcOut": 42.74
       },
       "dataPoints": 180,
-      "rank": 8
+      "rank": 4
+    },
+    {
+      "id": "axelar",
+      "name": "Axelar",
+      "avgScore": 42.84,
+      "metricAverages": {
+        "priceVolatility": 76.48,
+        "marketCap": 6.53,
+        "transactionVolume": 9.11,
+        "stakingRatio": 63.34,
+        "activeAddress": 5.22,
+        "liveTime": 48.22,
+        "nc": 66.67,
+        "proposalRate": 53.17,
+        "proposalCount": 58.87,
+        "ibcOut": 43.12
+      },
+      "dataPoints": 180,
+      "rank": 5
+    },
+    {
+      "id": "sei",
+      "name": "Sei",
+      "avgScore": 40.41,
+      "metricAverages": {
+        "priceVolatility": 74.73,
+        "marketCap": 32.6,
+        "transactionVolume": 79.09,
+        "stakingRatio": 74.25,
+        "activeAddress": 9.39,
+        "liveTime": 21.21,
+        "nc": 55.56,
+        "proposalRate": 11.57,
+        "proposalCount": 6.9,
+        "ibcOut": 42.25
+      },
+      "dataPoints": 180,
+      "rank": 6
     },
     {
       "id": "dydx",
       "name": "DYDX",
-      "avgScore": 38.33,
+      "avgScore": 39.01,
       "metricAverages": {
-        "priceVolatility": 76.61,
+        "priceVolatility": 76.54,
         "marketCap": 8.46,
         "transactionVolume": 7.99,
         "stakingRatio": 35.56,
         "activeAddress": 10.13,
         "liveTime": 17.7,
         "nc": 44.44,
-        "proposalRate": 74.19,
+        "proposalRate": 75.02,
         "proposalCount": 71.34,
         "ibcOut": 42.92
+      },
+      "dataPoints": 180,
+      "rank": 7
+    },
+    {
+      "id": "cronos",
+      "name": "Cronos POS",
+      "avgScore": 37.54,
+      "metricAverages": {
+        "priceVolatility": 78.06,
+        "marketCap": 100,
+        "transactionVolume": 27.59,
+        "stakingRatio": 10.91,
+        "activeAddress": 12.14,
+        "liveTime": 63.77,
+        "nc": 22.22,
+        "proposalRate": 16.15,
+        "proposalCount": 2.2,
+        "ibcOut": 42.38
+      },
+      "dataPoints": 180,
+      "rank": 8
+    },
+    {
+      "id": "persistence",
+      "name": "Persistence",
+      "avgScore": 37.03,
+      "metricAverages": {
+        "priceVolatility": 77.16,
+        "marketCap": 0.19,
+        "transactionVolume": 0.42,
+        "stakingRatio": 73.6,
+        "activeAddress": 1.42,
+        "liveTime": 63.53,
+        "nc": 66.67,
+        "proposalRate": 24.67,
+        "proposalCount": 20.12,
+        "ibcOut": 42.54
       },
       "dataPoints": 180,
       "rank": 9
@@ -177,16 +177,16 @@
     {
       "id": "akash",
       "name": "Akash",
-      "avgScore": 35.84,
+      "avgScore": 36.96,
       "metricAverages": {
-        "priceVolatility": 79.38,
+        "priceVolatility": 79.28,
         "marketCap": 6.14,
         "transactionVolume": 5.72,
         "stakingRatio": 55.16,
         "activeAddress": 14.12,
         "liveTime": 72.6,
         "nc": 44.44,
-        "proposalRate": 21.92,
+        "proposalRate": 24.77,
         "proposalCount": 25.01,
         "ibcOut": 42.49
       },
@@ -194,85 +194,123 @@
       "rank": 10
     },
     {
+      "id": "asi",
+      "name": "ASI Alliance",
+      "avgScore": 36.18,
+      "metricAverages": {
+        "priceVolatility": 76.49,
+        "marketCap": 32.14,
+        "transactionVolume": 62.91,
+        "stakingRatio": 54.38,
+        "activeAddress": 3.39,
+        "liveTime": 63.48,
+        "nc": 0,
+        "proposalRate": 19.25,
+        "proposalCount": 1.61,
+        "ibcOut": 50
+      },
+      "dataPoints": 180,
+      "rank": 11
+    },
+    {
       "id": "band",
       "name": "Band",
-      "avgScore": 35.47,
+      "avgScore": 33.55,
       "metricAverages": {
-        "priceVolatility": 76.65,
+        "priceVolatility": 76.53,
         "marketCap": 2.2,
         "transactionVolume": 7.15,
         "stakingRatio": 81.88,
         "activeAddress": 1.47,
         "liveTime": 77.82,
         "nc": 22.22,
-        "proposalRate": 12.68,
+        "proposalRate": 18.92,
         "proposalCount": 5.37,
         "ibcOut": 42.27
-      },
-      "dataPoints": 180,
-      "rank": 11
-    },
-    {
-      "id": "persistence",
-      "name": "Persistence",
-      "avgScore": 33.44,
-      "metricAverages": {
-        "priceVolatility": 77.22,
-        "marketCap": 0.19,
-        "transactionVolume": 0.42,
-        "stakingRatio": 73.6,
-        "activeAddress": 1.42,
-        "liveTime": 63.53,
-        "nc": 66.67,
-        "proposalRate": 21.8,
-        "proposalCount": 20.12,
-        "ibcOut": 42.54
       },
       "dataPoints": 180,
       "rank": 12
     },
     {
+      "id": "althea",
+      "name": "Althea",
+      "avgScore": 32.85,
+      "metricAverages": {
+        "priceVolatility": 84.2,
+        "marketCap": 0,
+        "transactionVolume": 0.09,
+        "stakingRatio": 32.9,
+        "activeAddress": 0,
+        "liveTime": 8.87,
+        "nc": 55.56,
+        "proposalRate": 37.32,
+        "proposalCount": 15.07,
+        "ibcOut": 42.22
+      },
+      "dataPoints": 180,
+      "rank": 13
+    },
+    {
       "id": "regen",
       "name": "Regen",
-      "avgScore": 33.19,
+      "avgScore": 32.56,
       "metricAverages": {
-        "priceVolatility": 80.17,
+        "priceVolatility": 80.14,
         "marketCap": 0.05,
         "transactionVolume": 0,
         "stakingRatio": 77.2,
         "activeAddress": 0.61,
         "liveTime": 62.75,
         "nc": 22.22,
-        "proposalRate": 18.18,
+        "proposalRate": 26.37,
         "proposalCount": 14.01,
         "ibcOut": 42.24
-      },
-      "dataPoints": 180,
-      "rank": 13
-    },
-    {
-      "id": "secret",
-      "name": "Secret",
-      "avgScore": 32.91,
-      "metricAverages": {
-        "priceVolatility": 79.69,
-        "marketCap": 1.21,
-        "transactionVolume": 2.9,
-        "stakingRatio": 59.57,
-        "activeAddress": 6.37,
-        "liveTime": 83.57,
-        "nc": 0,
-        "proposalRate": 5.56,
-        "proposalCount": 10.42,
-        "ibcOut": 42.53
       },
       "dataPoints": 180,
       "rank": 14
     },
     {
+      "id": "stargaze",
+      "name": "Stargaze",
+      "avgScore": 31.96,
+      "metricAverages": {
+        "priceVolatility": 81.42,
+        "marketCap": 0.05,
+        "transactionVolume": 0.01,
+        "stakingRatio": 47.3,
+        "activeAddress": 7.94,
+        "liveTime": 53.14,
+        "nc": 55.56,
+        "proposalRate": 15.54,
+        "proposalCount": 16.12,
+        "ibcOut": 42.48
+      },
+      "dataPoints": 180,
+      "rank": 15
+    },
+    {
+      "id": "terra",
+      "name": "Terra",
+      "avgScore": 30.94,
+      "metricAverages": {
+        "priceVolatility": 83.23,
+        "marketCap": 2.06,
+        "transactionVolume": 9.76,
+        "stakingRatio": 45.87,
+        "activeAddress": 5.86,
+        "liveTime": 42.86,
+        "nc": 66.67,
+        "proposalRate": 7.74,
+        "proposalCount": 2.37,
+        "ibcOut": 42.99
+      },
+      "dataPoints": 180,
+      "rank": 16
+    },
+    {
       "id": "coreum",
       "name": "Coreum",
-      "avgScore": 31.24,
+      "avgScore": 30.11,
       "metricAverages": {
         "priceVolatility": 81.19,
         "marketCap": 1.79,
@@ -281,142 +319,104 @@
         "activeAddress": 3.28,
         "liveTime": 28.18,
         "nc": 22.22,
-        "proposalRate": 10.34,
+        "proposalRate": 12.6,
         "proposalCount": 10.1,
         "ibcOut": 42.49
       },
       "dataPoints": 180,
-      "rank": 15
+      "rank": 17
     },
     {
       "id": "shentu",
       "name": "Shentu",
-      "avgScore": 31.04,
+      "avgScore": 29.56,
       "metricAverages": {
-        "priceVolatility": 79.37,
+        "priceVolatility": 79.36,
         "marketCap": 1.02,
         "transactionVolume": 2.51,
         "stakingRatio": 40.86,
         "activeAddress": 1.49,
         "liveTime": 89.03,
         "nc": 22.22,
-        "proposalRate": 2.73,
+        "proposalRate": 12.81,
         "proposalCount": 4.09,
         "ibcOut": 42.26
-      },
-      "dataPoints": 180,
-      "rank": 16
-    },
-    {
-      "id": "stargaze",
-      "name": "Stargaze",
-      "avgScore": 29.45,
-      "metricAverages": {
-        "priceVolatility": 81.54,
-        "marketCap": 0.05,
-        "transactionVolume": 0.01,
-        "stakingRatio": 47.3,
-        "activeAddress": 7.94,
-        "liveTime": 53.14,
-        "nc": 55.56,
-        "proposalRate": 14.04,
-        "proposalCount": 16.12,
-        "ibcOut": 42.48
-      },
-      "dataPoints": 180,
-      "rank": 17
-    },
-    {
-      "id": "althea",
-      "name": "Althea",
-      "avgScore": 29.2,
-      "metricAverages": {
-        "priceVolatility": 84.58,
-        "marketCap": 0,
-        "transactionVolume": 0.09,
-        "stakingRatio": 32.9,
-        "activeAddress": 0,
-        "liveTime": 8.87,
-        "nc": 55.56,
-        "proposalRate": 35.02,
-        "proposalCount": 15.07,
-        "ibcOut": 42.22
       },
       "dataPoints": 180,
       "rank": 18
     },
     {
+      "id": "secret",
+      "name": "Secret",
+      "avgScore": 29.51,
+      "metricAverages": {
+        "priceVolatility": 79.57,
+        "marketCap": 1.21,
+        "transactionVolume": 2.9,
+        "stakingRatio": 59.57,
+        "activeAddress": 6.37,
+        "liveTime": 83.57,
+        "nc": 0,
+        "proposalRate": 8.92,
+        "proposalCount": 10.42,
+        "ibcOut": 42.53
+      },
+      "dataPoints": 180,
+      "rank": 19
+    },
+    {
+      "id": "archway",
+      "name": "Archway",
+      "avgScore": 29.49,
+      "metricAverages": {
+        "priceVolatility": 88.86,
+        "marketCap": 0.07,
+        "transactionVolume": 0.07,
+        "stakingRatio": 60.33,
+        "activeAddress": 1.01,
+        "liveTime": 24.23,
+        "nc": 44.44,
+        "proposalRate": 32.51,
+        "proposalCount": 1.05,
+        "ibcOut": 42.36
+      },
+      "dataPoints": 180,
+      "rank": 20
+    },
+    {
+      "id": "neutron",
+      "name": "Neutron",
+      "avgScore": 29.01,
+      "metricAverages": {
+        "priceVolatility": 77.47,
+        "marketCap": 1.04,
+        "transactionVolume": 2.13,
+        "stakingRatio": 30.24,
+        "activeAddress": 4.13,
+        "liveTime": 25.94,
+        "nc": 55.56,
+        "proposalRate": 50,
+        "proposalCount": 0,
+        "ibcOut": 43.62
+      },
+      "dataPoints": 180,
+      "rank": 21
+    },
+    {
       "id": "saga",
       "name": "Saga",
-      "avgScore": 28.97,
+      "avgScore": 27.47,
       "metricAverages": {
-        "priceVolatility": 73.19,
+        "priceVolatility": 73.09,
         "marketCap": 1.25,
         "transactionVolume": 9.08,
         "stakingRatio": 83.56,
         "activeAddress": 5.83,
         "liveTime": 9.61,
         "nc": 22.22,
-        "proposalRate": 23.65,
+        "proposalRate": 17.36,
         "proposalCount": 10.33,
         "ibcOut": 42.4
-      },
-      "dataPoints": 180,
-      "rank": 19
-    },
-    {
-      "id": "kava",
-      "name": "Kava",
-      "avgScore": 28.67,
-      "metricAverages": {
-        "priceVolatility": 86.09,
-        "marketCap": 7.53,
-        "transactionVolume": 6.59,
-        "stakingRatio": 8.74,
-        "activeAddress": 5.52,
-        "liveTime": 88.01,
-        "nc": 0,
-        "proposalRate": 1.32,
-        "proposalCount": 6.49,
-        "ibcOut": 42.39
-      },
-      "dataPoints": 180,
-      "rank": 20
-    },
-    {
-      "id": "agoric",
-      "name": "Agoric",
-      "avgScore": 28.62,
-      "metricAverages": {
-        "priceVolatility": 73.65,
-        "marketCap": 0.14,
-        "transactionVolume": 0.04,
-        "stakingRatio": 61.03,
-        "activeAddress": 1.67,
-        "liveTime": 42.86,
-        "nc": 11.11,
-        "proposalRate": 14.62,
-        "proposalCount": 19.51,
-        "ibcOut": 42.28
-      },
-      "dataPoints": 180,
-      "rank": 21
-    },
-    {
-      "id": "terra",
-      "name": "Terra",
-      "avgScore": 28.42,
-      "metricAverages": {
-        "priceVolatility": 83.25,
-        "marketCap": 2.06,
-        "transactionVolume": 9.76,
-        "stakingRatio": 45.87,
-        "activeAddress": 5.86,
-        "liveTime": 42.86,
-        "nc": 66.67,
-        "proposalRate": 4.03,
-        "proposalCount": 2.37,
-        "ibcOut": 42.99
       },
       "dataPoints": 180,
       "rank": 22
@@ -424,16 +424,16 @@
     {
       "id": "medibloc",
       "name": "MediBloc",
-      "avgScore": 27.42,
+      "avgScore": 26.95,
       "metricAverages": {
-        "priceVolatility": 89.58,
+        "priceVolatility": 89.55,
         "marketCap": 1.14,
         "transactionVolume": 0.51,
         "stakingRatio": 24.13,
         "activeAddress": 0.45,
         "liveTime": 61.43,
         "nc": 0,
-        "proposalRate": null,
+        "proposalRate": 50,
         "proposalCount": 0,
         "ibcOut": 42.25
       },
@@ -441,77 +441,77 @@
       "rank": 23
     },
     {
+      "id": "babylon",
+      "name": "Babylon",
+      "avgScore": 26.92,
+      "metricAverages": {
+        "priceVolatility": 72.13,
+        "marketCap": 2.47,
+        "transactionVolume": 12.6,
+        "stakingRatio": 22.59,
+        "activeAddress": 7.62,
+        "liveTime": 9.61,
+        "nc": 77.78,
+        "proposalRate": 11.93,
+        "proposalCount": 10.07,
+        "ibcOut": 42.41
+      },
+      "dataPoints": 180,
+      "rank": 24
+    },
+    {
+      "id": "agoric",
+      "name": "Agoric",
+      "avgScore": 26.81,
+      "metricAverages": {
+        "priceVolatility": 73.61,
+        "marketCap": 0.14,
+        "transactionVolume": 0.04,
+        "stakingRatio": 61.03,
+        "activeAddress": 1.67,
+        "liveTime": 42.86,
+        "nc": 11.11,
+        "proposalRate": 15.83,
+        "proposalCount": 19.51,
+        "ibcOut": 42.28
+      },
+      "dataPoints": 180,
+      "rank": 25
+    },
+    {
+      "id": "stride",
+      "name": "Stride",
+      "avgScore": 26.74,
+      "metricAverages": {
+        "priceVolatility": 70.39,
+        "marketCap": 0.31,
+        "transactionVolume": 0.07,
+        "stakingRatio": 24.4,
+        "activeAddress": 5.25,
+        "liveTime": 37.98,
+        "nc": 66.67,
+        "proposalRate": 10.43,
+        "proposalCount": 9.24,
+        "ibcOut": 42.62
+      },
+      "dataPoints": 180,
+      "rank": 26
+    },
+    {
       "id": "xion",
       "name": "Xion",
-      "avgScore": 27.25,
+      "avgScore": 26.48,
       "metricAverages": {
-        "priceVolatility": 73.89,
+        "priceVolatility": 73.83,
         "marketCap": 0.7,
         "transactionVolume": 7.28,
         "stakingRatio": 42.88,
         "activeAddress": 38.46,
         "liveTime": 11.21,
         "nc": 22.22,
-        "proposalRate": 14.31,
+        "proposalRate": 15.3,
         "proposalCount": 10.43,
         "ibcOut": 42.46
-      },
-      "dataPoints": 180,
-      "rank": 24
-    },
-    {
-      "id": "provenance",
-      "name": "Provenance",
-      "avgScore": 27.21,
-      "metricAverages": {
-        "priceVolatility": 76.51,
-        "marketCap": 31.81,
-        "transactionVolume": 0.01,
-        "stakingRatio": 16.39,
-        "activeAddress": 1.16,
-        "liveTime": 63.73,
-        "nc": 66.67,
-        "proposalRate": 2.88,
-        "proposalCount": 4.44,
-        "ibcOut": 39.59
-      },
-      "dataPoints": 67,
-      "rank": 25
-    },
-    {
-      "id": "gravity",
-      "name": "Gravity Bridge",
-      "avgScore": 27.04,
-      "metricAverages": {
-        "priceVolatility": 76.96,
-        "marketCap": 0,
-        "transactionVolume": 0,
-        "stakingRatio": 40.52,
-        "activeAddress": 0.55,
-        "liveTime": 50.9,
-        "nc": 11.11,
-        "proposalRate": 19.82,
-        "proposalCount": 8.34,
-        "ibcOut": 42.31
-      },
-      "dataPoints": 180,
-      "rank": 26
-    },
-    {
-      "id": "archway",
-      "name": "Archway",
-      "avgScore": 26.77,
-      "metricAverages": {
-        "priceVolatility": 88.81,
-        "marketCap": 0.07,
-        "transactionVolume": 0.07,
-        "stakingRatio": 60.33,
-        "activeAddress": 1.01,
-        "liveTime": 24.23,
-        "nc": 44.44,
-        "proposalRate": 2.17,
-        "proposalCount": 1.05,
-        "ibcOut": 42.36
       },
       "dataPoints": 180,
       "rank": 27
@@ -519,16 +519,16 @@
     {
       "id": "mantra",
       "name": "Mantra",
-      "avgScore": 25.58,
+      "avgScore": 26.24,
       "metricAverages": {
-        "priceVolatility": 78.62,
+        "priceVolatility": 78.54,
         "marketCap": 4.3,
         "transactionVolume": 28.79,
         "stakingRatio": 35.48,
         "activeAddress": 7.91,
         "liveTime": 0,
         "nc": 22.22,
-        "proposalRate": 15.22,
+        "proposalRate": 28.58,
         "proposalCount": 14.11,
         "ibcOut": 42.45
       },
@@ -536,175 +536,156 @@
       "rank": 28
     },
     {
+      "id": "kava",
+      "name": "Kava",
+      "avgScore": 25.64,
+      "metricAverages": {
+        "priceVolatility": 86,
+        "marketCap": 7.53,
+        "transactionVolume": 6.59,
+        "stakingRatio": 8.74,
+        "activeAddress": 5.52,
+        "liveTime": 88.01,
+        "nc": 0,
+        "proposalRate": 5.18,
+        "proposalCount": 6.49,
+        "ibcOut": 42.39
+      },
+      "dataPoints": 180,
+      "rank": 29
+    },
+    {
       "id": "chihuahua",
       "name": "Chihuahua",
-      "avgScore": 25.24,
+      "avgScore": 24.6,
       "metricAverages": {
-        "priceVolatility": 63.5,
+        "priceVolatility": 63.44,
         "marketCap": 0.05,
         "transactionVolume": 0.19,
         "stakingRatio": 45.3,
         "activeAddress": 1.57,
         "liveTime": 49.88,
         "nc": 22.22,
-        "proposalRate": 12.7,
+        "proposalRate": 16.91,
         "proposalCount": 4.21,
         "ibcOut": 42.25
       },
       "dataPoints": 180,
-      "rank": 29
+      "rank": 30
     },
     {
       "id": "humans",
       "name": "Humans.ai",
-      "avgScore": 24.44,
+      "avgScore": 24.57,
       "metricAverages": {
-        "priceVolatility": 78.5,
+        "priceVolatility": 78.52,
         "marketCap": 0.95,
         "transactionVolume": 0.2,
         "stakingRatio": 42.22,
         "activeAddress": 0.28,
         "liveTime": 31.4,
         "nc": 0,
-        "proposalRate": null,
+        "proposalRate": 50,
         "proposalCount": 0,
         "ibcOut": 42.23
-      },
-      "dataPoints": 180,
-      "rank": 30
-    },
-    {
-      "id": "neutron",
-      "name": "Neutron",
-      "avgScore": 23.1,
-      "metricAverages": {
-        "priceVolatility": 77.51,
-        "marketCap": 1.04,
-        "transactionVolume": 2.13,
-        "stakingRatio": 30.24,
-        "activeAddress": 4.13,
-        "liveTime": 25.94,
-        "nc": 55.56,
-        "proposalRate": null,
-        "proposalCount": 0,
-        "ibcOut": 43.62
       },
       "dataPoints": 180,
       "rank": 31
     },
     {
-      "id": "xpla",
-      "name": "XPLA",
-      "avgScore": 22.98,
+      "id": "gravity",
+      "name": "Gravity Bridge",
+      "avgScore": 24.34,
       "metricAverages": {
-        "priceVolatility": 81.02,
-        "marketCap": 0.66,
-        "transactionVolume": 0.36,
-        "stakingRatio": 0.97,
-        "activeAddress": 2,
-        "liveTime": 44.47,
+        "priceVolatility": 76.8,
+        "marketCap": 0,
+        "transactionVolume": 0,
+        "stakingRatio": 40.52,
+        "activeAddress": 0.55,
+        "liveTime": 50.9,
         "nc": 11.11,
-        "proposalRate": 16.61,
-        "proposalCount": 17.47,
-        "ibcOut": 42.25
+        "proposalRate": 12.9,
+        "proposalCount": 8.34,
+        "ibcOut": 42.31
       },
       "dataPoints": 180,
       "rank": 32
     },
     {
-      "id": "stride",
-      "name": "Stride",
-      "avgScore": 22.11,
-      "metricAverages": {
-        "priceVolatility": 70.49,
-        "marketCap": 0.31,
-        "transactionVolume": 0.07,
-        "stakingRatio": 24.4,
-        "activeAddress": 5.25,
-        "liveTime": 37.98,
-        "nc": 66.67,
-        "proposalRate": 7.04,
-        "proposalCount": 9.24,
-        "ibcOut": 42.62
-      },
-      "dataPoints": 180,
-      "rank": 33
-    },
-    {
       "id": "atomone",
       "name": "AtomOne",
-      "avgScore": 21.77,
+      "avgScore": 23.61,
       "metricAverages": {
-        "priceVolatility": 58.08,
+        "priceVolatility": 57.76,
         "marketCap": 1.82,
         "transactionVolume": 0.26,
         "stakingRatio": 51.59,
         "activeAddress": 7.32,
         "liveTime": 11.65,
         "nc": 44.44,
-        "proposalRate": 5.74,
+        "proposalRate": 7.59,
         "proposalCount": 11.22,
         "ibcOut": 42.45
+      },
+      "dataPoints": 180,
+      "rank": 33
+    },
+    {
+      "id": "xpla",
+      "name": "XPLA",
+      "avgScore": 21.88,
+      "metricAverages": {
+        "priceVolatility": 80.98,
+        "marketCap": 0.66,
+        "transactionVolume": 0.36,
+        "stakingRatio": 0.97,
+        "activeAddress": 2,
+        "liveTime": 44.47,
+        "nc": 11.11,
+        "proposalRate": 18.54,
+        "proposalCount": 17.47,
+        "ibcOut": 42.25
       },
       "dataPoints": 180,
       "rank": 34
     },
     {
-      "id": "milkyway",
-      "name": "MilkyWay",
-      "avgScore": 21.19,
-      "metricAverages": {
-        "priceVolatility": 74.69,
-        "marketCap": 0.25,
-        "transactionVolume": 2.17,
-        "stakingRatio": 34.42,
-        "activeAddress": 7.92,
-        "liveTime": 7.02,
-        "nc": 11.11,
-        "proposalRate": 1.66,
-        "proposalCount": 0.06,
-        "ibcOut": 42.31
-      },
-      "dataPoints": 180,
-      "rank": 35
-    },
-    {
-      "id": "babylon",
-      "name": "Babylon",
-      "avgScore": 21.05,
-      "metricAverages": {
-        "priceVolatility": 72.17,
-        "marketCap": 2.47,
-        "transactionVolume": 12.6,
-        "stakingRatio": 22.59,
-        "activeAddress": 7.62,
-        "liveTime": 9.61,
-        "nc": 77.78,
-        "proposalRate": 8.73,
-        "proposalCount": 10.07,
-        "ibcOut": 42.41
-      },
-      "dataPoints": 180,
-      "rank": 36
-    },
-    {
       "id": "nillion",
       "name": "Nillion",
-      "avgScore": 17.89,
+      "avgScore": 20.02,
       "metricAverages": {
-        "priceVolatility": 76.07,
+        "priceVolatility": 76.01,
         "marketCap": 1.29,
         "transactionVolume": 8.05,
         "stakingRatio": 0.36,
         "activeAddress": 4.06,
         "liveTime": 10.58,
         "nc": 33.33,
-        "proposalRate": 9.16,
+        "proposalRate": 22.75,
         "proposalCount": 1.53,
         "ibcOut": 42.25
       },
       "dataPoints": 180,
-      "rank": 37
+      "rank": 35
+    },
+    {
+      "id": "milkyway",
+      "name": "MilkyWay",
+      "avgScore": 18.1,
+      "metricAverages": {
+        "priceVolatility": 74.71,
+        "marketCap": 0.25,
+        "transactionVolume": 2.17,
+        "stakingRatio": 34.42,
+        "activeAddress": 7.92,
+        "liveTime": 7.02,
+        "nc": 11.11,
+        "proposalRate": 0.05,
+        "proposalCount": 0.06,
+        "ibcOut": 42.31
+      },
+      "dataPoints": 180,
+      "rank": 36
     }
   ]
 }

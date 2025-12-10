@@ -38,7 +38,7 @@ const CHAINS = [
   { id: 'neutron', folder: 'Neutron' },
   { id: 'nillion', folder: 'Nillion' },
   { id: 'persistence', folder: 'Persistence' },
-  { id: 'provenance', folder: 'Provenance' },
+  // { id: 'provenance', folder: 'Provenance' }, // 제외: 67일 데이터만 존재
   { id: 'regen', folder: 'Regen' },
   { id: 'saga', folder: 'Saga' },
   { id: 'sei', folder: 'Sei' },
@@ -162,8 +162,14 @@ function calculateNC(validators) {
 }
 
 // 일별 Proposal Rate 계산 (최근 30일 이동 윈도우)
-function calculateProposalRate(proposals, targetDate, tokenBonded) {
-  if (!proposals || proposals.length === 0 || !tokenBonded) return null;
+// Carry Forward 방식: 제안 없으면 이전 값 유지, 한번도 없으면 null (정규화 후 50 적용)
+function calculateProposalRate(proposals, targetDate, tokenBonded, lastKnownRate = null) {
+  if (!tokenBonded || tokenBonded === 0) {
+    return lastKnownRate; // 이전 값 유지 또는 null
+  }
+  if (!proposals || proposals.length === 0) {
+    return lastKnownRate; // 이전 값 유지 또는 null
+  }
   
   const windowStart = targetDate - (30 * 24 * 60 * 60 * 1000);
   
@@ -172,7 +178,10 @@ function calculateProposalRate(proposals, targetDate, tokenBonded) {
     return endTime && endTime >= windowStart && endTime <= targetDate;
   });
   
-  if (recentProposals.length === 0) return null;
+  // 제안 없으면 이전 값 유지 (Carry Forward)
+  if (recentProposals.length === 0) {
+    return lastKnownRate; // null이면 정규화 후 50으로 처리됨
+  }
   
   let totalVotes = 0;
   recentProposals.forEach(p => {
@@ -214,7 +223,7 @@ function calculateIBCOut(relayerData, targetDate) {
 
 // 메인 처리 함수
 async function processAllChains() {
-  console.log('🚀 Starting data processing for 37 chains...\n');
+  console.log('🚀 Starting data processing for 36 chains...\n');
   
   const allChainData = {};
   const allTimestamps = new Set();
@@ -239,16 +248,32 @@ async function processAllChains() {
       // 일별 데이터 구성
       const dailyData = {};
       
-      baseInfo.forEach(row => {
+      // validators 데이터에서 고유한 timestamp 추출 및 정렬
+      const validatorTimestamps = [...new Set(validators.filter(v => v.timestamp).map(v => v.timestamp))].sort((a, b) => b - a);
+      
+      // Carry Forward를 위한 마지막 proposalRate 추적 (오래된 것부터 처리)
+      let lastKnownProposalRate = null;
+      
+      // 시간순 정렬 (오래된 것부터 처리하여 Carry Forward 적용)
+      const sortedBaseInfo = [...baseInfo].sort((a, b) => a.timestamp - b.timestamp);
+      
+      sortedBaseInfo.forEach(row => {
         const ts = row.timestamp;
         if (!ts) return;
         
         const date = new Date(ts);
         
-        // 해당 일자의 validators 데이터 찾기
-        const dayValidators = validators.filter(v => {
-          return v.timestamp && Math.abs(v.timestamp - ts) < 12 * 60 * 60 * 1000;
-        });
+        // 해당 일자에 가장 가까운 validators 데이터 찾기 (±12시간 내 없으면 가장 가까운 과거 데이터 사용)
+        let closestValidatorTs = validatorTimestamps.find(vts => Math.abs(vts - ts) < 12 * 60 * 60 * 1000);
+        
+        // 12시간 내에 없으면 가장 가까운 과거 timestamp 찾기
+        if (!closestValidatorTs) {
+          closestValidatorTs = validatorTimestamps.find(vts => vts <= ts) || validatorTimestamps[validatorTimestamps.length - 1];
+        }
+        
+        const dayValidators = closestValidatorTs 
+          ? validators.filter(v => v.timestamp === closestValidatorTs)
+          : [];
         
         // 해당 일자의 txCount 찾기
         const dayTx = txCount.find(t => {
@@ -277,6 +302,13 @@ async function processAllChains() {
           marketCap = row.marketPrice * row.marketSupplyCirculating;
         }
         
+        // ProposalRate 계산 (Carry Forward 방식)
+        const proposalRate = calculateProposalRate(proposals, ts, tokenBonded, lastKnownProposalRate);
+        // 실제 계산된 값이면 lastKnown 업데이트 (50이 아니고 이전값과 다른 경우)
+        if (proposalRate !== 50 && proposalRate !== lastKnownProposalRate) {
+          lastKnownProposalRate = proposalRate;
+        }
+        
         dailyData[ts] = {
           timestamp: ts,
           date: date.toISOString().split('T')[0],
@@ -288,7 +320,7 @@ async function processAllChains() {
             activeAddress: row.accountsMonthly,
             liveTime: liveTimeDays,
             nc: calculateNC(dayValidators),
-            proposalRate: calculateProposalRate(proposals, ts, tokenBonded),
+            proposalRate: proposalRate,
             proposalCount: calculateProposalCount(proposals, ts),
             ibcOut: calculateIBCOut(relayer, ts),
           },
@@ -390,6 +422,16 @@ async function processAllChains() {
       });
     });
     
+    // proposalRate가 없는 체인 (제안 없음)에 중립값 50 적용
+    CHAINS.forEach(chain => {
+      if (!normalizedScores[chain.id]) {
+        normalizedScores[chain.id] = {};
+      }
+      if (normalizedScores[chain.id].proposalRate === undefined) {
+        normalizedScores[chain.id].proposalRate = 50; // 측정 불가 = 중립
+      }
+    });
+    
     // 최종 안정성 점수 계산 (10개 지표 평균)
     Object.keys(normalizedScores).forEach(chainId => {
       const scores = normalizedScores[chainId];
@@ -468,6 +510,112 @@ async function processAllChains() {
   rankings.forEach((chain, index) => {
     chain.rank = index + 1;
     finalResults[chain.id].rank = index + 1;
+  });
+  
+  // 4.5. proposalRate/proposalCount에 Carry Forward 적용
+  console.log('\n🔧 Applying carry-forward for proposal metrics...');
+  
+  Object.keys(finalResults).forEach(chainId => {
+    const dailyScores = finalResults[chainId].dailyScores;
+    if (!dailyScores || dailyScores.length < 2) return;
+    
+    // 날짜순 정렬 (오래된 것부터)
+    dailyScores.sort((a, b) => a.timestamp - b.timestamp);
+    
+    ['proposalRate', 'proposalCount'].forEach(metric => {
+      let lastValidValue = null;
+      let carried = 0;
+      
+      for (let i = 0; i < dailyScores.length; i++) {
+        const currentVal = dailyScores[i].metrics[metric];
+        
+        if (currentVal > 0) {
+          // 유효한 값이면 저장
+          lastValidValue = currentVal;
+        } else if (currentVal === 0 && lastValidValue !== null) {
+          // 0이고 이전 유효값이 있으면 이전 값으로 대체
+          dailyScores[i].metrics[metric] = lastValidValue;
+          carried++;
+        }
+      }
+      
+      if (carried > 0) {
+        console.log(`  ✅ ${chainId}: ${metric} - ${carried} values carried forward`);
+      }
+    });
+    
+    // 다시 최신순 정렬
+    dailyScores.sort((a, b) => b.timestamp - a.timestamp);
+  });
+
+  // 4.6. 보간법으로 누락된 값 채우기
+  console.log('\n🔧 Interpolating missing values...');
+  
+  const metricsToInterpolate = ['stakingRatio', 'marketCap', 'transactionVolume'];
+  
+  Object.keys(finalResults).forEach(chainId => {
+    const dailyScores = finalResults[chainId].dailyScores;
+    if (!dailyScores || dailyScores.length < 3) return;
+    
+    metricsToInterpolate.forEach(metric => {
+      // 누락된 인덱스 찾기
+      const nullIndices = [];
+      dailyScores.forEach((day, i) => {
+        if (day.metrics[metric] === null || day.metrics[metric] === undefined) {
+          nullIndices.push(i);
+        }
+      });
+      
+      if (nullIndices.length === 0) return;
+      
+      // 연속된 null 구간 찾기 및 보간
+      let interpolated = 0;
+      nullIndices.forEach(idx => {
+        // 이전 유효값 찾기
+        let prevIdx = idx - 1;
+        let prevVal = null;
+        while (prevIdx >= 0) {
+          if (dailyScores[prevIdx].metrics[metric] != null) {
+            prevVal = dailyScores[prevIdx].metrics[metric];
+            break;
+          }
+          prevIdx--;
+        }
+        
+        // 다음 유효값 찾기
+        let nextIdx = idx + 1;
+        let nextVal = null;
+        while (nextIdx < dailyScores.length) {
+          if (dailyScores[nextIdx].metrics[metric] != null) {
+            nextVal = dailyScores[nextIdx].metrics[metric];
+            break;
+          }
+          nextIdx++;
+        }
+        
+        // 보간값 계산
+        if (prevVal !== null && nextVal !== null) {
+          // 선형 보간
+          const totalGap = nextIdx - prevIdx;
+          const currentGap = idx - prevIdx;
+          const interpolatedVal = prevVal + (nextVal - prevVal) * (currentGap / totalGap);
+          dailyScores[idx].metrics[metric] = Math.round(interpolatedVal * 100) / 100;
+          interpolated++;
+        } else if (prevVal !== null) {
+          // 이전 값만 있으면 그 값 사용
+          dailyScores[idx].metrics[metric] = prevVal;
+          interpolated++;
+        } else if (nextVal !== null) {
+          // 다음 값만 있으면 그 값 사용
+          dailyScores[idx].metrics[metric] = nextVal;
+          interpolated++;
+        }
+      });
+      
+      if (interpolated > 0) {
+        console.log(`  ✅ ${chainId}: ${metric} - ${interpolated} values interpolated`);
+      }
+    });
   });
   
   // 5. 결과 저장

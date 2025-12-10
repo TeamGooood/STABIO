@@ -40,24 +40,16 @@ function App() {
         
         {/* Main Content - 4개 컴포넌트 Grid */}
         <main className="flex-1 p-[30px]">
-          <div className="grid grid-cols-2 gap-[30px] max-w-[1920px]">
-            {/* Top Left */}
-            <div>
+          <div className="flex flex-col gap-[30px]">
+            {/* Top Row */}
+            <div className="flex gap-[30px]">
               <StabilityScoreTrend selectedChains={selectedChains} weights={weights} />
-            </div>
-            
-            {/* Top Right */}
-            <div>
               <StabilityRawDataOverview />
             </div>
             
-            {/* Bottom Left */}
-            <div>
-              <StabilityFactorAnalysis />
-            </div>
-            
-            {/* Bottom Right */}
-            <div>
+            {/* Bottom Row */}
+            <div className="flex gap-[30px]">
+              <StabilityFactorAnalysis selectedChains={selectedChains} />
               <Summary />
             </div>
           </div>

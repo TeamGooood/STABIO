@@ -1,6 +1,6 @@
 function StabilityRawDataOverview() {
   return (
-    <div className="bg-[#13151a] rounded-[20px] p-[40px]">
+    <div className="bg-[#13151a] rounded-[20px] p-[40px]" style={{ width: 624.25 }}>
       {/* Title and Toggle */}
       <div className="flex items-center justify-between mb-[20px]">
         <h2 className="text-[20px] font-bold text-white">
