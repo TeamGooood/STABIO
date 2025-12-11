@@ -6,12 +6,16 @@ import { calculateWeightedScore } from '../utils/calculateScore';
 // 차트 색상 (최대 4개)
 const CHART_COLORS = ['#f6465d', '#f3ba3a', '#0ecb81', '#9852ed'];
 
-function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, volatility: 34, persistence: 33 } }) {
+function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, volatility: 34, persistence: 33 }, selectedDate = null, onDateSelect = () => {} }) {
   const [timeUnit, setTimeUnit] = useState(1); // 1일, 3일, 7일, 14일, 30일
   const [startIndex, setStartIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState(0);
   const [zoomTarget, setZoomTarget] = useState(null); // { timestamp, relativePosition }
+  const [isDraggingSelector, setIsDraggingSelector] = useState(false);
+  const [chartWidth, setChartWidth] = useState(0);
+  const [hasDragged, setHasDragged] = useState(false); // 실제로 드래그가 발생했는지 추적
+  const [isZooming, setIsZooming] = useState(false); // 줌 중인지 추적
   const containerRef = useRef(null);
   const chartDataLengthRef = useRef(0);
 
@@ -63,7 +67,38 @@ function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, vo
     chartDataLengthRef.current = chartData.length;
   }, [chartData.length]);
 
-  // 줌 타겟이 있을 때 해당 위치 기준으로 startIndex 조정
+  // 차트 너비 추적 (resize 이벤트 감지)
+  useEffect(() => {
+    const updateChartWidth = () => {
+      if (containerRef.current) {
+        setChartWidth(containerRef.current.offsetWidth);
+      }
+    };
+
+    updateChartWidth();
+    
+    // ResizeObserver를 사용하여 컨테이너 크기 변경 감지
+    const resizeObserver = new ResizeObserver(updateChartWidth);
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+    
+    window.addEventListener('resize', updateChartWidth);
+    
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', updateChartWidth);
+    };
+  }, []);
+
+  // chartData나 startIndex가 변경될 때 차트 너비 재계산
+  useEffect(() => {
+    if (containerRef.current) {
+      setChartWidth(containerRef.current.offsetWidth);
+    }
+  }, [chartData, startIndex]);
+
+  // 줌 타겟이 있을 때 해당 위치 기준으로 startIndex 조정 및 날짜 선택
   useEffect(() => {
     if (zoomTarget && chartData.length > 0) {
       // chartData에서 zoomTarget.timestamp에 가장 가까운 인덱스 찾기
@@ -86,14 +121,24 @@ function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, vo
       const maxIndex = Math.max(0, chartData.length - 13);
       const newStartIndex = Math.max(0, Math.min(maxIndex, targetIndex - zoomTarget.relativePosition));
       setStartIndex(newStartIndex);
+      
+      // 가장 가까운 날짜로 선택 업데이트
+      if (chartData[targetIndex]?.date) {
+        onDateSelect(chartData[targetIndex].date);
+      }
+      
       setZoomTarget(null);
     }
-  }, [chartData, zoomTarget]);
+  }, [chartData, zoomTarget, onDateSelect]);
   
-  // 초기 로드 시 최신 데이터 위치로 설정
+  // 초기 로드 시 최신 데이터 위치로 설정 및 초기 날짜 선택
   useEffect(() => {
     if (chartData.length > 0 && !zoomTarget) {
       setStartIndex(Math.max(0, chartData.length - 13));
+      // 초기 날짜 선택 (최신 날짜)
+      if (!selectedDate && chartData[chartData.length - 1]) {
+        onDateSelect(chartData[chartData.length - 1].date);
+      }
     }
   }, [selectedChains]);
 
@@ -147,11 +192,17 @@ function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, vo
     }
 
     if (newTimeUnit !== timeUnit) {
+      // 줌 시작 표시
+      setIsZooming(true);
+      
       // 줌 타겟 저장 후 timeUnit 변경
       if (targetTimestamp) {
         setZoomTarget({ timestamp: targetTimestamp, relativePosition: mouseDataIndex });
       }
       setTimeUnit(newTimeUnit);
+      
+      // 줌 완료 후 isZooming 해제 (chartData 업데이트 후)
+      setTimeout(() => setIsZooming(false), 100);
     }
   };
 
@@ -160,11 +211,14 @@ function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, vo
     e.preventDefault();
     setIsDragging(true);
     setDragStart(e.clientX);
+    setHasDragged(false); // 드래그 시작 시 초기화
   };
 
   // 드래그 종료
   const handleMouseUp = () => {
     setIsDragging(false);
+    // hasDragged는 클릭 이벤트 후에 초기화되도록 setTimeout 사용
+    setTimeout(() => setHasDragged(false), 0);
   };
 
   // 드래그 중 (실시간 업데이트 - 그래프와 함께 이동)
@@ -177,6 +231,7 @@ function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, vo
       const indexDiff = Math.round(diff * sensitivity);
 
       if (Math.abs(indexDiff) > 0) {
+        setHasDragged(true); // 실제로 드래그가 발생했음을 표시
         const maxIndex = Math.max(0, chartDataLengthRef.current - 13);
         setStartIndex(prev => {
           // 오른쪽으로 드래그(diff > 0) → 과거를 당겨옴 (startIndex 감소, 더 앞쪽 데이터)
@@ -190,6 +245,8 @@ function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, vo
 
     const handleMouseUpGlobal = () => {
       setIsDragging(false);
+      // hasDragged는 클릭 이벤트 후에 초기화되도록 setTimeout 사용
+      setTimeout(() => setHasDragged(false), 0);
     };
 
     // 실시간 업데이트를 위해 document에 리스너 추가
@@ -218,6 +275,74 @@ function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, vo
     
     return `${month} ${day}${suffix}, ${year}`;
   };
+
+  // 선택된 날짜의 인덱스 찾기
+  const selectedDateIndex = useMemo(() => {
+    if (!selectedDate || visibleData.length === 0) return -1;
+    return visibleData.findIndex(d => d.date === selectedDate);
+  }, [selectedDate, visibleData]);
+
+  // 차트 클릭 핸들러 (날짜 선택)
+  const handleChartClick = (e) => {
+    // 드래그 중이거나 드래그가 발생했다면 클릭 무시
+    if (isDragging || isDraggingSelector || hasDragged) return;
+    
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    
+    const yAxisWidth = 30;
+    const mouseX = e.clientX - rect.left - yAxisWidth;
+    const chartWidth = rect.width - yAxisWidth;
+    const relativeX = Math.max(0, Math.min(1, mouseX / chartWidth));
+    
+    const visibleCount = Math.min(13, visibleData.length);
+    const clickedIndex = Math.min(Math.round(relativeX * (visibleCount - 1)), visibleCount - 1);
+    
+    if (clickedIndex >= 0 && clickedIndex < visibleData.length) {
+      onDateSelect(visibleData[clickedIndex].date);
+    }
+  };
+
+  // 날짜 선택기 드래그 시작
+  const handleSelectorMouseDown = (e) => {
+    e.stopPropagation();
+    setIsDraggingSelector(true);
+    setDragStart(e.clientX);
+  };
+
+  // 날짜 선택기 드래그
+  useEffect(() => {
+    if (!isDraggingSelector) return;
+
+    const handleMouseMove = (e) => {
+      const rect = containerRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      
+      const yAxisWidth = 30;
+      const mouseX = e.clientX - rect.left - yAxisWidth;
+      const chartWidth = rect.width - yAxisWidth;
+      const relativeX = Math.max(0, Math.min(1, mouseX / chartWidth));
+      
+      const visibleCount = Math.min(13, visibleData.length);
+      const newIndex = Math.min(Math.round(relativeX * (visibleCount - 1)), visibleCount - 1);
+      
+      if (newIndex >= 0 && newIndex < visibleData.length) {
+        onDateSelect(visibleData[newIndex].date);
+      }
+    };
+
+    const handleMouseUp = () => {
+      setIsDraggingSelector(false);
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDraggingSelector, visibleData, onDateSelect]);
 
   // 커스텀 툴팁
   const CustomTooltip = ({ active, payload, label }) => {
@@ -276,6 +401,7 @@ function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, vo
         ref={containerRef}
         onWheel={handleWheel}
         onMouseDown={handleMouseDown}
+        onClick={handleChartClick}
         className="relative cursor-grab active:cursor-grabbing"
         style={{ userSelect: 'none' }}
       >
@@ -284,19 +410,20 @@ function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, vo
             Select chains to view stability trends
           </div>
         ) : (
-          <ResponsiveContainer width="100%" height={392}>
-            <LineChart data={visibleData} margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
-              {/* Y축 점선 그리드 */}
-              <ReferenceLine y={20} stroke="#2f374c" strokeDasharray="3 3" />
-              <ReferenceLine y={40} stroke="#2f374c" strokeDasharray="3 3" />
-              <ReferenceLine y={60} stroke="#2f374c" strokeDasharray="3 3" />
-              <ReferenceLine y={80} stroke="#2f374c" strokeDasharray="3 3" />
-              <ReferenceLine y={100} stroke="#2f374c" strokeDasharray="3 3" />
-              
-              {/* 0점 실선 */}
-              <ReferenceLine y={0} stroke="#2f374c" strokeWidth={1} />
-              
-              <XAxis 
+          <>
+            <ResponsiveContainer width="100%" height={392}>
+              <LineChart data={visibleData} margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
+                {/* Y축 점선 그리드 */}
+                <ReferenceLine y={20} stroke="#2f374c" strokeDasharray="3 3" />
+                <ReferenceLine y={40} stroke="#2f374c" strokeDasharray="3 3" />
+                <ReferenceLine y={60} stroke="#2f374c" strokeDasharray="3 3" />
+                <ReferenceLine y={80} stroke="#2f374c" strokeDasharray="3 3" />
+                <ReferenceLine y={100} stroke="#2f374c" strokeDasharray="3 3" />
+                
+                {/* 0점 실선 */}
+                <ReferenceLine y={0} stroke="#2f374c" strokeWidth={1} />
+                
+                <XAxis 
                 dataKey="date" 
                 axisLine={false}
                 tickLine={false}
@@ -354,11 +481,49 @@ function StabilityScoreTrend({ selectedChains = [], weights = { activity: 33, vo
                     stroke: '#13151a',
                     strokeWidth: 2
                   }}
-                  isAnimationActive={false}
+                  isAnimationActive={!isDragging && !hasDragged && !isZooming}
+                  animationDuration={800}
+                  animationEasing="ease-out"
                 />
               ))}
             </LineChart>
           </ResponsiveContainer>
+
+          {/* 날짜 선택기 - 파란색 수직선 */}
+          {selectedDateIndex >= 0 && chartWidth > 0 && (
+            <>
+              {/* 파란색 수직선 (Y축 범위보다 5px씩 더 길게) */}
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  left: `${30 + ((selectedDateIndex / Math.max(1, visibleData.length - 1)) * (chartWidth - 30))}px`,
+                  top: '5px',
+                  height: '362px', // 차트 높이 392px - X축 36px + 위아래 5px씩 = 356px + 6px
+                  width: '2px',
+                  backgroundColor: '#455cdc',
+                  transform: 'translateX(-50%)',
+                  zIndex: 5
+                }}
+              />
+              
+              {/* 날짜 레이블 (선 위쪽에 배치) */}
+              <div
+                className="absolute cursor-pointer select-none"
+                style={{
+                  left: `${30 + ((selectedDateIndex / Math.max(1, visibleData.length - 1)) * (chartWidth - 30))}px`,
+                  top: '-1px',
+                  transform: 'translateX(-50%) translateY(-100%)',
+                  zIndex: 10
+                }}
+                onMouseDown={handleSelectorMouseDown}
+              >
+                <div className="text-xs text-[#455cdc] font-normal">
+                  {visibleData[selectedDateIndex]?.date.split('-').slice(1).join('/')}
+                </div>
+              </div>
+            </>
+          )}
+        </>
         )}
       </div>
 

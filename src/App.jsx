@@ -17,6 +17,9 @@ function App() {
     persistence: 33
   })
 
+  // 선택된 날짜 상태 (Raw Data Overview를 위해)
+  const [selectedDate, setSelectedDate] = useState(null)
+
   const handleSelectedChainsUpdate = useCallback((chainIds, chains) => {
     setSelectedChainIds(chainIds)
     setSelectedChains(chains)
@@ -24,6 +27,10 @@ function App() {
 
   const handleWeightsChange = useCallback((newWeights) => {
     setWeights(newWeights)
+  }, [])
+
+  const handleDateSelect = useCallback((date) => {
+    setSelectedDate(date)
   }, [])
 
   return (
@@ -43,8 +50,16 @@ function App() {
           <div className="flex flex-col gap-[30px]">
             {/* Top Row */}
             <div className="flex gap-[30px]">
-              <StabilityScoreTrend selectedChains={selectedChains} weights={weights} />
-              <StabilityRawDataOverview />
+              <StabilityScoreTrend 
+                selectedChains={selectedChains} 
+                weights={weights}
+                selectedDate={selectedDate}
+                onDateSelect={handleDateSelect}
+              />
+              <StabilityRawDataOverview 
+                selectedChains={selectedChains}
+                selectedDate={selectedDate}
+              />
             </div>
             
             {/* Bottom Row */}
